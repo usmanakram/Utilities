@@ -1,0 +1,26 @@
+How can I run multiple Skype accounts on Windows desktop?
+
+From the Windows taskbar, click Start > Run (or press the Windows The Windows key. and R keys on your keyboard at the same time).
+In the Run window, type the following command (including the quotes) and press OK:
+
+For 32-bit operating systems:
+"C:\Program Files\Skype\Phone\Skype.exe" /secondary
+
+For 64-bit operating systems:
+"C:\Program Files (x86)\Skype\Phone\Skype.exe" /secondary
+
+If you get an error message, copy and paste the exact command from this page and try again
+Be aware that if you’ve changed the installation path for Skype, then you’ll need to enter the correct path for the Skype.exe file.
+
+If the above solution fails, you can try another option:
+
+Find the Skype.exe file in C:\Program Files\Skype\Phone\ if you’re running a 32-bit operating system.
+If you’re running 64-bit operating system, you can find the file in C:\Program Files (x86)\Skype\Phone\.
+
+Right-click the file and select Send to > Desktop (create shortcut).
+Locate the shortcut on your desktop, then right-click it and select Properties.
+In the Target field of the Shortcut tab, add /secondary to the end of the path. The Target field should now be "C:\Program Files\Skype\Phone\Skype.exe" /secondary.
+Click OK. You can now start a new instance of Skype every time you double-click the new shortcut.
+
+Link:
+https://support.skype.com/en/faq/FA829/how-can-i-run-multiple-skype-accounts-on-windows-desktop

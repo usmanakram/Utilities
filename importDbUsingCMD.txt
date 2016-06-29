@@ -1,0 +1,12 @@
+Large sql files can be imported in DB using cmd.
+Follow these simple steps:
+
+1.	Create a database (db should be empty)
+2.	Go to command line interface and open your local server folder.
+		i.e. cd d:/xampp/mysql/bin
+3.	Connect with server using following command
+		mysql -u your_username (append "-p your_passwrod" if password is set)
+4.	Select DB using following command
+		use your_db_name
+5.	A success message will be displayed. Now apply following command
+		set autocommit=0; source d:/project/file.sql;(your sql file path) commit;

@@ -1,0 +1,41 @@
+Create a virtual host:
+
+1.	create a file "E:\xampp\apache\conf\xnspy\xnspy.local.conf"
+	
+	File content:
+	
+	<VirtualHost xnspy.local:80>
+		DocumentRoot "E:/GIT/xnspy/xnspy-web-app/xnspy-cms"
+		ServerName xnspy.local
+		ServerAlias xnspy.local
+		<Directory "E:/GIT/xnspy/xnspy-web-app/xnspy-cms">
+			AllowOverride All
+			Require all Granted
+		</Directory>
+	</VirtualHost>
+	<VirtualHost xnspy.local:443>
+		DocumentRoot "E:/GIT/xnspy/xnspy-web-app/xnspy-cms"
+		ServerName xnspy.local:443
+		ServerAlias xnspy.local
+			SSLEngine on
+			SSLCertificateFile "conf/ssl.crt/server.crt"
+			SSLCertificateKeyFile "conf/ssl.key/server.key"
+			<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars
+			</FilesMatch>
+			<Directory "E:/xampp/apache/cgi-bin">
+				SSLOptions +StdEnvVars
+			</Directory>
+		<Directory "E:/GIT/xnspy/xnspy-web-app/xnspy-cms">
+			AllowOverride All
+			Require all Granted
+		</Directory>
+	</VirtualHost>
+
+
+2.	Include created file in "E:\xampp\apache\conf\extra\httpd-vhosts.conf"
+	as ( Include "conf/xnspy/xnspy.local.conf" )
+
+
+3.	Write a line at the end of file "C:\Windows\System32\drivers\etc\hosts"
+	as ( 127.0.0.1    xnspy.local )

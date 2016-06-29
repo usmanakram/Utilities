@@ -1,0 +1,33 @@
+Get the Interface/Network Name:
+	netsh interface show interface
+
+Enable the interface/network:
+	netsh interface set interface "Interface Name" enabled
+
+################################## START: Wifi Hotspot ##################################
+To check if wireless adapter supports Hosted Networks in Windows 10:
+	NETSH WLAN show drivers
+
+To create a wireless Hosted Network in Windows 10:
+	NETSH WLAN set hostednetwork mode=allow ssid=Your_SSID key=Your_Passphrase
+
+To activate/start Hosted Network:
+	NETSH WLAN start hostednetwork
+
+To deactivate/stop Hosted Network:
+	NETSH WLAN stop hostednetwork
+
+To enable or disable a wireless Hosted Network:
+	NETSH WLAN set hostednetwork mode=allow
+	NETSH WLAN set hostednetwork mode= disallow
+
+To change SSID or network security:
+	NETSH WLAN set hostednetwork ssid=Your_New_SSID
+	NETSH WLAN set hostednetwork key=Your_New_Passphrase
+
+To shows the mode and SSID name in use, max number of clients that can connect, type of authentication, and cipher:
+	NETSH WLAN show hostednetwork
+
+To show network security key among other settings, similar to the previous command:
+	NETSH WLAN show hostednetwork setting=security
+################################### END: Wifi Hotspot ###################################
