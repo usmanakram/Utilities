@@ -1,4 +1,4 @@
-How to turn your Windows 10 PC into a wireless hotspot
+﻿How to turn your Windows 10 PC into a wireless hotspot
 ======================================================
 BY MAURO HUCULAK Wednesday, Feb 3, 2016 at 4:08 pm EST
 
@@ -6,42 +6,68 @@ BY MAURO HUCULAK Wednesday, Feb 3, 2016 at 4:08 pm EST
 
  
 
-Windows 10 includes a feature called "Hosted Network" that allows you to turn your computer into a wireless hotspot, and this guide we'll show you how to do it.
+Windows 10 includes a feature called "Hosted Network" that allows you to turn your computer into a wireless hotspot, and this 
 
-Whether you're connecting to the internet using a wireless or wired adapter, similar to previous versions, Windows 10 allows you to share an internet connection with other devices with a feature called "Hosted Network".
+guide we'll show you how to do it.
 
-Hosted Network is a feature that comes included with the Netsh (Network Shell) command-line utility. It's was previously introduced in Windows 7, and it allows you to use the operating system to create a virtual wireless adapter – something that Microsoft refers to "Virtual Wi-Fi" — and create a SoftAP, which is a software-based wireless access point.
+Whether you're connecting to the internet using a wireless or wired adapter, similar to previous versions, Windows 10 allows 
 
-Through the combination of these two elements, your PC can take its internet connection (be it an ethernet connection or hookup through a cellular adapter) and share it with other wireless devices — essentially acting as a wireless hotspot.
+you to share an internet connection with other devices with a feature called "Hosted Network".
 
-In this Windows 10 guide, we'll walk you through the steps to verify if your network adapter supports the feature, how to configure and enable a wireless Hosted Network, and how to stop and remove the settings from your computer when you no longer need the feature.
+Hosted Network is a feature that comes included with the Netsh (Network Shell) command-line utility. It's was previously 
+
+introduced in Windows 7, and it allows you to use the operating system to create a virtual wireless adapter – something 
+
+that Microsoft refers to "Virtual Wi-Fi" — and create a SoftAP, which is a software-based wireless access point.
+
+Through the combination of these two elements, your PC can take its internet connection (be it an ethernet connection 
+
+or hookup through a cellular adapter) and share it with other wireless devices — essentially acting as a wireless hotspot.
+
+In this Windows 10 guide, we'll walk you through the steps to verify if your network adapter supports the feature, how 
+
+to configure and enable a wireless Hosted Network, and how to stop and remove the settings from your computer when you no 
+
+longer need the feature.
 
 
-To follow this guide, you'll need to open the Command Prompt with administrator rights. To do this, use the Windows key + X keyboard shortcut, and select Command Prompt (Admin).
+To follow this guide, you'll need to open the Command Prompt with administrator rights. To do this, use the Windows key + X 
+
+keyboard shortcut, and select Command Prompt (Admin).
 
 How to check if your wireless adapter supports Hosted Networks in Windows 10
 ============================================================================
 
-While some adapters include support for Hosted Network, you will first need to verify your computer's physical wireless adapter supports this feature using the following command:
+While some adapters include support for Hosted Network, you will first need to verify your computer's physical wireless 
+
+adapter supports this feature using the following command:
 
 NETSH WLAN show drivers
 -----------------------
 
 
 
-If the generated output shows Hosted network supported: Yes, then you can continue with the guide. If your wireless adapter isn't supported, you could try using a USB wireless adapter that supports the feature.
+If the generated output shows Hosted network supported: Yes, then you can continue with the guide. If your wireless adapter 
+
+isn't supported, you could try using a USB wireless adapter that supports the feature.
 
 How to create a wireless Hosted Network in Windows 10
 =====================================================
 
-Creating a wireless hotspot in Windows 10 is relatively straightforward — don't let the command line scare you. Simply follow the steps below to configure a wireless Hosted Network:
+Creating a wireless hotspot in Windows 10 is relatively straightforward — don't let the command line scare you. Simply follow 
+
+the steps below to configure a wireless Hosted Network:
 
 While in Command Prompt (Admin) enter the following command:
 
 NETSH WLAN set hostednetwork mode=allow ssid=Your_SSID key=Your_Passphrase
 --------------------------------------------------------------------------
 
-Where the SSID would be the name you want to identify your wireless network when trying to connect a new device, and the passphrase is the network security key you want users to use to connect to your network. (Remember that the passphrase has to be at least 8 characters in length.)
+Where the SSID would be the name you want to identify your wireless network when trying to connect a new device, and the 
+
+passphrase is the network security key you want users to use to connect to your network. 
+
+(Remember that the passphrase has to be at least 8 characters in length.)
 
 
 
@@ -55,14 +81,21 @@ NETSH WLAN start hostednetwork
 How to share your internet connection with a Hosted Network in Windows 10
 =========================================================================
 
-Up to here, you created and started a Hosted Network in your Windows 10 PC. However, any wireless capable device won't be able to access the internet just yet. The last thing you need to do is to share an internet connection using the "Internet Connection Sharing" feature from a physical network adapter.
+Up to here, you created and started a Hosted Network in your Windows 10 PC. However, any wireless capable device won't be 
+
+able to access the internet just yet. The last thing you need to do is to share an internet connection using the 
+
+"Internet Connection Sharing" feature from a physical network adapter.
 
 Use the Windows key + X keyboard shortcut to open the Power User menu, and select Network Connections.
-Next, right-click the network adapter with an internet connection – this could be a traditional Ethernet or wireless network adapter — select Properties.
+Next, right-click the network adapter with an internet connection – this could be a traditional Ethernet or wireless network 
+adapter — select Properties.
 
 
 
-Note: In Network Connections, you should now see a new our new Microsoft Hosted Virtual Adapter which is labeled Local Area Connection* X, and with the SSID name.
+Note: In Network Connections, you should now see a new our new Microsoft Hosted Virtual Adapter which is labeled Local Area 
+
+Connection* X, and with the SSID name.
 
 Click the Sharing tab.
 Check the Allow other network users to connect through this computer's Internet connection option.
@@ -71,19 +104,25 @@ Next, from the Home networking connection drop-down menu select the Microsoft Ho
 
 
 Click OK to finish.
-At this point, you should be able to see and connect any wireless capable device to the newly created software access point, and with access to the internet.
+At this point, you should be able to see and connect any wireless capable device to the newly created software access point, 
+
+and with access to the internet.
 
 How to stop sharing an internet connection with other devices in Windows 10
 ===========================================================================
 
-If you want to temporary stop allowing other devices to connect wirelessly through your computer, you can type the following command in the Command Prompt and hit Enter:
+If you want to temporary stop allowing other devices to connect wirelessly through your computer, you can type the following 
+
+command in the Command Prompt and hit Enter:
 
 NETSH WLAN stop hostednetwork
 -----------------------------
 
 
 
-At any time, you can just use the start variant of the command to allow other devices to connect to the internet using your computer as an access point without extra configuration:
+At any time, you can just use the start variant of the command to allow other devices to connect to the internet using your 
+
+computer as an access point without extra configuration:
 
 NETSH WLAN start hostednetwork
 ------------------------------
@@ -129,11 +168,21 @@ NETSH WLAN show hostednetwork setting=security
 How to disable a wireless Hosted Network in Windows 10
 ======================================================
 
-While the setup of a wireless Hosted Network in Windows 10 is not very complicated, Microsoft doesn't make very straightforward to remove the configurations when you no longer need the feature.
+While the setup of a wireless Hosted Network in Windows 10 is not very complicated, Microsoft doesn't make very straightforward 
 
-Although you can use the stop or disallow commands, these actions won't eliminate the settings from your computer. If you want completely delete the Hosted Network settings in Windows 10, you'll need to modify the Registry.
+to remove the configurations when you no longer need the feature.
 
-Important: Before you change anything settings on your computer, it's worth noting that editing the Windows Registry can be a dangerous game that can cause irreversible damages to your system if you don't know what you are doing. As such, it's recommended for you to make a full backup of your system or at least System Restore Point before proceeding with this guide. You have been warned!
+Although you can use the stop or disallow commands, these actions won't eliminate the settings from your computer. If you want 
+
+completely delete the Hosted Network settings in Windows 10, you'll need to modify the Registry.
+
+Important: Before you change anything settings on your computer, it's worth noting that editing the Windows Registry can be a 
+
+dangerous game that can cause irreversible damages to your system if you don't know what you are doing. As such, it's 
+
+recommended for you to make a full backup of your system or at least System Restore Point before proceeding with this guide. 
+
+You have been warned!
 
 Open the Start menu, do a search for regedit, hit Enter, and click OK to open the Registry with admin rights.
 Scroll down the following path in the Registry:
@@ -155,7 +204,9 @@ You will know that you have successfully deleted the settings when the Settings 
 
 
 
-Make sure you turn off "Internet Connection Sharing" in the physical network adapter that was sharing the internet with other devices. Use the Windows key + X keyboard shortcut to open the Power User menu, and select Network Connections.
+Make sure you turn off "Internet Connection Sharing" in the physical network adapter that was sharing the internet with 
+
+other devices. Use the Windows key + X keyboard shortcut to open the Power User menu, and select Network Connections.
 
 Right-click the network adapter, and select Properties.
 Click the Sharing tab.
@@ -166,14 +217,32 @@ Uncheck the Allow other network users to connect through this computer's Interne
 Click OK to complete the process.
 Things you need to know
 
-Although the wireless Hosted Network feature in Windows 10 allows you to implement an access point solution to share an internet connection with other devices, it's not meant to be a solution to replace a physical wireless access point.
+Although the wireless Hosted Network feature in Windows 10 allows you to implement an access point solution to share 
 
-Also, there are a few things you want to consider. For example, wireless speeds will dramatically be reduced compared to the rates provided from a physical access point. Perhaps it would not be a big deal for internet browsing, but downloading or transferring big files could be an issue for some users.
+an internet connection with other devices, it's not meant to be a solution to replace a physical wireless access point.
 
-You also need to consider that your computer needs to be always turned on to act as a wireless access point. If the computer enters into sleep, hibernate, or restarts, your wireless hotspot will stop working, and you will need to start manually the feature using the NETSH WLAN start hostednetwork command.
+Also, there are a few things you want to consider. For example, wireless speeds will dramatically be reduced compared 
 
-You cannot run a SorftAP and ad hoc at the same time on Windows. If you need to create a temporary network connection between two computers, setting up ad hoc will turn off SoftAP — you can run one or the other, not both at the same time.
+to the rates provided from a physical access point. Perhaps it would not be a big deal for internet browsing, but 
+
+downloading or transferring big files could be an issue for some users.
+
+You also need to consider that your computer needs to be always turned on to act as a wireless access point. If the 
+
+computer enters into sleep, hibernate, or restarts, your wireless hotspot will stop working, and you will need to start 
+
+manually the feature using the NETSH WLAN start hostednetwork command.
+
+You cannot run a SorftAP and ad hoc at the same time on Windows. If you need to create a temporary network connection 
+
+between two computers, setting up ad hoc will turn off SoftAP — you can run one or the other, not both at the same time.
 
 Wrapping things up
 
-Wireless Hosted Network is a nifty feature in Windows can be a great tool to have for when you need to create a wireless access point on the go. It won't match the performance of a physical wireless access point, but it can be useful for many unexpected scenarios — like having one wired ethernet connection and several devices you want to get online. It's not a replacement for the real thing, but in a sticky situation, it can be just the fix you need.
+Wireless Hosted Network is a nifty feature in Windows can be a great tool to have for when you need to create a wireless 
+
+access point on the go. It won't match the performance of a physical wireless access point, but it can be useful for many 
+
+unexpected scenarios — like having one wired ethernet connection and several devices you want to get online. It's not a 
+
+replacement for the real thing, but in a sticky situation, it can be just the fix you need.
