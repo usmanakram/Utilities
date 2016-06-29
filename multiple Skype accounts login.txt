@@ -19,7 +19,8 @@ If you’re running 64-bit operating system, you can find the file in C:\Program F
 
 Right-click the file and select Send to > Desktop (create shortcut).
 Locate the shortcut on your desktop, then right-click it and select Properties.
-In the Target field of the Shortcut tab, add /secondary to the end of the path. The Target field should now be "C:\Program Files\Skype\Phone\Skype.exe" /secondary.
+In the Target field of the Shortcut tab, add /secondary to the end of the path. 
+The Target field should now be "C:\Program Files\Skype\Phone\Skype.exe" /secondary.
 Click OK. You can now start a new instance of Skype every time you double-click the new shortcut.
 
 Link:
