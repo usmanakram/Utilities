@@ -1,0 +1,2 @@
+Container's terminal
+	docker exec -it <container name> bash -l

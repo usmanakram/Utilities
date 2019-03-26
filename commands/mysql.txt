@@ -1,0 +1,27 @@
+Dump:
+	mysqldump db_name table_name > table_name.sql
+	Example:
+	mysqldump osmalldb uom > uom.sql
+
+Dump from a remote database:
+	mysqldump -u <db_username> -h <db_host> -p db_name table_name > table_name.sql
+	Examples:
+	mysqldump -u root osmalldb uom > /volumes/data/work/uom.sql
+	mysqldump -u root osmalldb uom > /Users/usmanakram/Desktop/uom.sql
+
+
+Restore
+	mysql -u <user_name> -p db_name
+	mysql> source <full_path>/table_name.sql
+
+or in one line
+	mysql -u username -p db_name < /path/to/table_name.sql
+
+
+Dump and restore a single table from a compressed (.sql.gz) format
+
+Dump
+	mysqldump db_name table_name | gzip > table_name.sql.gz
+
+Restore
+	gunzip < table_name.sql.gz | mysql -u username -p db_name

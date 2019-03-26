@@ -1,0 +1,14 @@
+svn status -q							"prints only summary information about locally modified items"
+	Reference Link: http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.status.html
+
+svn diff								"To display local modifications in a working copy"
+	Reference Link: http://svnbook.red-bean.com/en/1.8/svn.ref.svn.c.diff.html
+
+svn revert								"Reverts any local changes to a file or directory and resolves any conflicted states"
+	Reference Link: http://svnbook.red-bean.com/en/1.8/svn.ref.svn.c.revert.html
+
+svn diff -c <revision> path/to/repo		"To view changes made to files on a certain version"
+
+
+svn commit -m "Fixed ...." doctracking.blade.php	"To commit a single file"
+svn add polyfiller.js					"To add new file in repo"
