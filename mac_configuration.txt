@@ -1,0 +1,11 @@
+Mac OS X: Set / Change $PATH (Environment Variable)
+	
+	For the current terminal session only:
+		Open terminal and run this command.
+		PATH=$PATH:<your directory path>
+
+	For Permanent:
+		There are 3 different files where we can add new path
+		1. /Users/<username>/.bash_profile
+		2. /private/etc/paths
+		3. /private/etc/paths.d/<myPaths>
