@@ -1,0 +1,2 @@
+To connect to the server via SSH, run the following command from a terminal:
+	ssh -p 2222 cpanelusr@ip.add.re.ss

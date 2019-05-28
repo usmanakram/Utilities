@@ -1,2 +1,21 @@
 Migrate single table
 	php artisan migrate --path=/database/migrations/test/
+
+To create database table migration file
+	php artisan make:migration create_posts_table --create=posts
+
+To redump file
+	composer dump-autoload
+
+To run migration
+	php artisan migrate
+
+To create a model
+	php artisan make:model Task
+
+
+
+
+php artisan config:cache
+php artisan config:clear
+php artisan cache:clear
