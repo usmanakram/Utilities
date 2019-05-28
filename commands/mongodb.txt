@@ -1,0 +1,19 @@
+mongorestore -d db_name dump_folder_path
+
+List databases
+	show dbs
+
+Switch database
+	use database_name
+
+List tables/collections
+	show collections
+
+Show table/collection content
+	db.collectionName.find()
+	OR
+	db.colectionName.find().pretty()
+
+To drop database
+	1) use database_name
+	2) db.dropDatabase()
