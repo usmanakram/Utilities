@@ -1,0 +1,46 @@
+Source link: 
+https://www.youtube.com/watch?v=KCckWweNSrM
+Playlist link:
+https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK&index=1
+
+
+Play with Docker:
+https://labs.play-with-docker.com/
+
+
+To Install DOCKER
+	sudo yum -y update
+	sudo yum install -y docker
+
+To check version
+	docker --version
+
+To start DOCKER
+	sudo service docker start
+
+To add new user
+	sudo usermod -a -G docker "your new user"
+
+To get docker info
+	docker info
+
+To vie images
+	docker images
+
+To view running containers
+	docker ps
+
+To view all containers
+	docker ps -a
+
+To pull image from repository
+	docker pull "image name"
+
+To run (auto pull before run, if do not exist locally) an image
+	docker run "image name"
+
+To stop DOCKER
+	sudo service docker stop
+
+To uninstall DOCKER
+	sudo yum remove docker

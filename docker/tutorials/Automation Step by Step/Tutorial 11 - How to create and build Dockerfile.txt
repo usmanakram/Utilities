@@ -1,0 +1,48 @@
+Source link:
+https://www.youtube.com/watch?v=LQjaJINkQXY
+
+
+
+A text file with instructions to build image
+Automation of Docker Image Creation
+
+FROM
+RUN
+CMD
+
+
+Note:
+	- RUN gets executed during building of the image
+	- Command, inside CMD brace, executed when container created out of the image
+
+STEP 1 : CREATE A FILE NAMED Dockerfile
+
+STEP 2 : ADD INSTRUCTIONS IN Dockerfile
+
+========================
+START Dockerfile content
+========================
+# getting base image ubuntu
+FROM ubuntu
+
+MAINTAINER usman akram <usman.akram99@gmail.com>
+
+RUN apt-get update
+
+CMD ["echo", "Hello World...! from my first docker image"]
+======================
+END Dockerfile content
+======================
+
+STEP 3 : BUILD Dockerfile TO CREATE IMAGE
+
+To build the image
+	docker build .
+
+Complete command:
+	docker build -t ImageName:Tag directoryOfDocekrfile (put dot ".", if Dockerfile is in current directory)
+
+STEP 4 : RUN IMAGE TO CREATE CONTAINER
+
+To create container
+	docker run image "image ID"

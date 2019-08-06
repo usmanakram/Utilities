@@ -1,0 +1,25 @@
+Source link:
+https://www.youtube.com/watch?v=QBOcKdh-fwQ
+
+
+To pull image from repository (hub.docker.com)
+	docker pull "image name":"image tag"
+
+To view images (have not associated with containers)
+	docker images -f "dangling=false"
+
+To view IDs of images (have not associated with containers)
+	docker images -f "dangling=false" -q
+
+To create a named container with interactive mode
+	docker run --name MyUbuntu1 -it ubuntu bash
+
+To inspect image
+	docker inspect "image name"
+
+To view the history of image
+	docker history "image name"
+
+Note:
+	- By run an image means to create a container out of an image.
+	- Before removing image, we have to stop & remove the container.

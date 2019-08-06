@@ -1,0 +1,76 @@
+Source link: 
+https://www.youtube.com/watch?v=HqBMEmoAd1M
+
+To reduce the length of terminal string
+	export PS1="\u$ "
+
+=====
+Basic
+=====
+To get the info of docker Server & Client
+	docker version
+
+To view docker version (brief info)
+	docker -v
+	OR
+	docker --version
+
+To view docker version (detailed info)
+	docker info
+
+To get help
+	docker --help
+
+To login hub.docker.com
+	docker login
+
+======
+Images
+======
+To view list of all pulled images
+	docker images
+
+To view only ID's of pulled(available locally) images
+	docker images -q
+
+To pull image from repository (hub.docker.com)
+	docker pull "image name"
+
+To remove image
+	docker rmi "image name"
+
+To remove image (forcefully)
+	docker rmi -f "image name"
+
+==========
+Containers
+==========
+To view list of containers
+	docker ps
+
+To view list of (all) containers
+	docker ps -a
+
+To run (auto pull before run, if do not exist locally) a container
+	docker run "image name"
+
+To run image in interactive mode
+	docker run -it "image name"
+
+To start container
+	docker start "container id/name"
+
+To stop container
+	docker stop "container id/name"
+
+======
+System
+======
+To view the detail of running containers
+	docker stats
+
+To view disc usage of docker 
+	docker system df
+
+To remove unused data
+	docker system prune

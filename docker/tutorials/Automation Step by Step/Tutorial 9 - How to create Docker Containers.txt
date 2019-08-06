@@ -1,0 +1,43 @@
+Source link:
+https://www.youtube.com/watch?v=Rv3DAJbDrS0
+
+
+Notes:
+	- Containers are the running instances of docker images. Whenever you run an image it creates a container.
+	- Docker build is used to create a docker image using docker file.
+
+========
+COMMANDS
+========
+To create a named container with interactive mode
+	docker run --name MyUbuntu1 -it ubuntu
+
+To start the container
+	docker start ContainerName/ID
+
+To stop the running container
+	docker stop ContainerName/ID
+
+To pause the running container
+	docker pause ContainerName/ID
+
+To unpause the container
+	docker unpause ContainerName/ID
+
+To view processes of the container
+	docker top ContainerName/ID
+
+To view the stats of the running container
+	docker stats ContainerName/ID
+
+To attach the container
+	docker attach ContainerName/ID
+
+To kill or remove the running container
+	docker kill ContainerName/ID
+
+To remove container
+	docker rm ContainerName/ID
+
+To view the history of the image
+	docker history ImageName/ID
