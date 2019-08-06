@@ -1,0 +1,80 @@
+===============
+Getting Started
+===============
+
+Source link:
+https://www.youtube.com/watch?v=Kyx2PsuwomE
+Playlist link:
+https://www.youtube.com/watch?v=Kyx2PsuwomE&list=PLillGF-Rfqbb6vZqT-Lzi9Al_noaY5LAs&index=1
+
+Commands:
+	docker version
+	docker info
+
+List down all downloaded images
+	docker images
+
+Download image
+	docker pull <image name>:<tag OR version>
+
+
+Delete image
+	docker image rm <image ID OR first 3 characters of image ID>
+
+To remove container
+	docker container rm <container ID OR first 3 characters of container ID>
+
+
+docker container run -d -p 8080:80 --name mynginx nginx
+docker container run -d -p 8081:80 --name myapache httpd
+docker container run -d -p 8081:80 --name myphp7.3 php:7.3-apache
+docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
+
+To stop running container
+	docker container stop <container name>
+
+Go inside running container
+	docker container exec -it <container name> bash
+
+Remove all containers
+	docker rm $(docker ps -aq)
+
+To remove forcefully, append -f
+	docker rm $(docker ps -aq) -f
+
+
+Create server with setting up files directory (bind mount), "$(pwd)" represents current directory
+	docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx
+
+To create own image
+	docker image build -t <your username>/<your image name> .
+	docker image build -t usmanakram99/nginx-website .
+
+Now, create container using newly created image
+	docker container run -d -p 8082:80 usmanakram99/nginx-website
+
+Push image to docker hub
+	docker push usmanakram99/nginx-website
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+==================================
+Docker Compose With Node & MongoDB
+==================================
+
+Create 3 files inside "docker-node-mongo" directory.
+	1) Dockerfile
+	2) docker-compose.yml
+	3) .dockerignore
+
+Then run following command
+	docker-compose up
+
+To remove both containers as well as network, run following command
+	docker-compose down
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+=================================
+Quick Wordpress Setup With Docker
+=================================
