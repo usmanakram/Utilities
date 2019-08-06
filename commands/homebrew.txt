@@ -1,0 +1,14 @@
+Update Homebrew itself and all installed packages
+	brew update
+
+List installed packages:
+	brew list
+
+Download a package named "git":
+	brew install git
+
+Upgrade a package named "git":
+	brew upgrade git
+
+Uninstall the package named "git":
+	brew uninstall git
