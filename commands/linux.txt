@@ -1,9 +1,15 @@
 The most important command is "tail". Tail can be used to read the last lines from a file. Examples:
 Get the last 100 lines from the Debian mail log file:
-	tail -n 100 /var/log/mail.log
+	$ tail -n 100 /var/log/mail.log
 
 To get all newly added lines from a log file in realtime on the shell, use the command:
-	tail -f /var/log/mail.log
+	$ tail -f /var/log/mail.log
 
 To connect to the server via SSH, run the following command from a terminal:
-	ssh -p 2222 cpanelusr@ip.add.re.ss
+	$ ssh -p 2222 cpanelusr@ip.add.re.ss
+
+To remove a directory that contains other files or directories, use the following command.
+	$ rm -r <directory name>
+
+Executing the above command would delete all files and directories in the directory named in the command. However, it would also present a prompt for approval to delete each of the files. If you don't want to receive a prompt for each file, use the following command instead.
+	$ rm -rf <directory name>
