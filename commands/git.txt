@@ -79,9 +79,15 @@ Refrence Link: https://help.github.com/en/articles/adding-an-existing-project-to
 
 
 If you want only the remote URL, or referential integrity has been broken:
-	git config --get remote.origin.url
+	$ git config --get remote.origin.url
+OR
+	$ git config remote.origin.url
+
 We have another command to get remote URL
-	git remote -v
+	$ git remote -v
 
 If you require full output or referential integrity is intact:
-	git remote show origin
+	$ git remote show origin
+
+To list down all configuration settings with origins where they defined
+	$ git config --list --show-origin
