@@ -1,3 +1,6 @@
+Print system PATH variable
+	echo %PATH%
+
 Get the Interface/Network Name:
 	netsh interface show interface
 
