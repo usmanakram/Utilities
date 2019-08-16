@@ -1,11 +1,77 @@
+To see the installed version of npm
+	$ npm -v
+	OR
+	$ npm --version
+
+To get help
+	$ npm help
+	OR
+	$ npm
+
+Create "package.json"
+	$ npm init
+
+Create "package.json" with default configuration values
+	$ npm init -y
+	OR
+	$ npm init --yes
+
+Set default configuration
+	$ npm config set init-author-name "Usman Akram"
+	OR
+	$ npm set init-author-name "Usman Akram"
+
+Get default configuration
+	$ npm config get init-author-name
+	OR
+	$ npm get init-author-name
+
+Remove default configuration
+	$ npm config delete init-author-name
+	OR
+	$ npm delete init-author-name
+
+Install local package
+	$ npm install <package name> --save
+	OR
+	$npm install <package name> --save-dev
+
+Remove module
+	$ npm uninstall <package name> --save-dev
+	OR
+	$ npm remove <package name> --save-dev
+
+Install global package
+	$ npm install -g <package name>
+
+Remove global module
+	$ npm remove -g <package name>
+
+Find global package root folder
+	$ npm root -g
+
+Install specific version
+	$ npm install <package name>@<version> --save
+
+Update installed module version
+	$ npm update <package name>
+
 To see the latest version of all the npm package installed, including their dependencies:
-	npm list
+	$ npm list
+	$ npm list --depth 0
+	$ npm list --depth 1
+
 For global packages
-	npm list -g
+	$ npm list -g
 
 You can get the version of a specific package by specifying the name:
-	npm list [package name]
+	$ npm list [package name]
 
 If you want to see what’s the latest available version of the package on the npm repository, run 
-	npm view [package name] version
+	$ npm view [package name] version
 
+Install Lice Server locally
+	$ npm install live-server --save-dev
+
+To install only regular dependencies (DevDependencies will be ignored)
+	$ npm install --production
