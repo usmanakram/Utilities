@@ -3,6 +3,9 @@ To see the installed version of npm
 	OR
 	$ npm --version
 
+To upgrade npm
+	$ npm install npm@latest -g
+
 To get help
 	$ npm help
 	OR
