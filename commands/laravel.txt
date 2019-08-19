@@ -13,7 +13,8 @@ To run migration
 To create a model
 	php artisan make:model Task
 
-
+To create a controller
+	php artisan make:controller UsersController
 
 
 php artisan config:cache
