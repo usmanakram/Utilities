@@ -1,21 +1,36 @@
 Migrate single table
-	php artisan migrate --path=/database/migrations/test/
+	$ php artisan migrate --path=/database/migrations/test/
 
 To create database table migration file
-	php artisan make:migration create_posts_table --create=posts
+	$ php artisan make:migration create_posts_table --create=posts
 
 To redump file
-	composer dump-autoload
+	$ composer dump-autoload
 
 To run migration
-	php artisan migrate
+	$ php artisan migrate
 
 To create a model
-	php artisan make:model Task
+	$ php artisan make:model Task
 
 To create a controller
-	php artisan make:controller UsersController
+	$ php artisan make:controller UsersController
 
+=====================
+START: Event Commands
+=====================
+To cache a manifest of all of your application's events and listeners
+	$ php artisan event:cache
+
+To destroy the cache
+	$ php artisan event:clear
+
+To display a list of all events and listeners registered by application
+	$ php artisan event:list
+
+To generate event listener:
+event:generate command will automatically import the proper event class and type-hint the event on the handle method. Within the handle method, you may perform any actions necessary to respond to the event:
+	$ php artisan event:generate
 
 php artisan config:cache
 php artisan config:clear
