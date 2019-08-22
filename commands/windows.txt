@@ -1,6 +1,9 @@
 Print system PATH variable
 	echo %PATH%
 
+Windows IP Configuration
+	ipconfig
+
 Get the Interface/Network Name:
 	netsh interface show interface
 
