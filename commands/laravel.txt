@@ -16,6 +16,9 @@ To create a model
 To create a controller
 	$ php artisan make:controller UsersController
 
+To list down all defined routes
+	$ php artisan route:list
+
 =====================
 START: Event Commands
 =====================
