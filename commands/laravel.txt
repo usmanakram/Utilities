@@ -1,3 +1,6 @@
+To generate encryption key (in .env)
+	$ php artisan key:generate
+
 Migrate single table
 	$ php artisan migrate --path=/database/migrations/test/
 
