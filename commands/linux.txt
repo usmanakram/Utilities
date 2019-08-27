@@ -1,3 +1,22 @@
+Get current directory path
+	$ pwd
+
+List down files & directories inside current directory
+	$ ls
+	For all (included hidden)
+	$ ls -a
+	For extra info
+	$ ls -l
+
+To change directory
+	$ cd <directory name>
+
+Go to system's absolute root
+	$ cd /
+
+Go to current user's home directory
+	$ cd ~
+
 To connect to the server via SSH, run the following command from a terminal:
 	$ ssh -p 2222 username@ip.add.re.ss
 
@@ -6,12 +25,31 @@ Connect through terminal using rsa key
 
 Create file
 	$ touch <file name>
+	If file is long
+	$ less <file name>
+
+	To exit from "less", hit "q"
 
 Edit file
 	$ vim <file name>
 	Press "i" for insert mode
 	Enter anthing you want to put as content
 	Press Esc then ":wq!" for save & exit
+
+Edit file
+	$ nano <file name>
+	Enter anthing you want to put as content
+	Press ctrl + X for exit
+	Then hit Enter
+
+Move file
+	$ mv <1st file path> <2nd file path>
+
+Copy file
+	$ cp <1st file path> <2nd file path>
+
+To search file or folder location
+	$ which <file name>
 
 View content of file
 	$ cat <file name>
@@ -23,14 +61,68 @@ Get the last 100 lines from the Debian mail log file:
 To get all newly added lines from a log file in realtime on the shell, use the command:
 	$ tail -f /var/log/mail.log
 
+To remove file
+	$ rm <file name>
+
 Create directory
 	$ mkdir <directory name>
 
+To remove directory
+	$ rmdir <directory name>
+
 To remove a directory that contains other files or directories, use the following command.
 	$ rm -r <directory name>
+	$ rm -R <directory name>
 
 Executing the above command would delete all files and directories in the directory named in the command. However, it would also present a prompt for approval to delete each of the files. If you don't want to receive a prompt for each file, use the following command instead.
 	$ rm -rf <directory name>
 
 Shorten terminal default string
 	$ export PS1="\u$ "
+
+To print your entered commands history
+	$ history
+
+To run a command as "root" user, put "sudo" front of the command.
+
+Print network informationn. Just like "ipconfig" on Windows
+	$ ifconfig
+
+For wireless
+	$ iwconfig
+
+Get summary of system
+	$ uname -a
+
+Harddrive
+	$ blkid
+
+Display process
+	$ top
+
+Available and unavailable disk space
+	$ df
+
+Print list of devices. like usb
+	$ lsusb
+
+	$ lspci
+
+Package manager (debian & ubuntu uses "apt-get")
+	$ sudu apt-get install <package name>
+
+To remove software
+	$ sudo apt-get remove <package name>
+
+To install available updates
+	$ sudo apt-get update
+
+To restart
+	$ sudo shutdown -r
+
+To shutdown
+	$ sudo shutdown -h now
+	Wait for 10 minutes before shutdown.
+	$ sudo shutdown -h 10
+
+
