@@ -12,7 +12,7 @@ To check, configuration source file for a particular config key
 	git config --show-origin user.name
 
 Undo changes in a file (before "git add <file path>")
-	git checkout <file path>
+	git checkout -- <file path>
 
 
 
