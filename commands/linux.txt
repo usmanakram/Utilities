@@ -1,3 +1,5 @@
+To run a command as "root" user, put "sudo" front of the command.
+
 Get current directory path
 	$ pwd
 
@@ -44,6 +46,8 @@ Edit file
 
 Move file
 	$ mv <1st file path> <2nd file path>
+	An example
+	$ sudo mv -v /home/usman/react-crypto-prices/build/* /var/www/html
 
 Copy file
 	$ cp <1st file path> <2nd file path>
@@ -52,7 +56,7 @@ To search file or folder location
 	$ which <file name>
 
 View content of file
-	$ cat <file name>
+	$ cat <file path>
 
 The most important command is "tail". Tail can be used to read the last lines from a file. Examples:
 Get the last 100 lines from the Debian mail log file:
@@ -82,8 +86,6 @@ Shorten terminal default string
 
 To print your entered commands history
 	$ history
-
-To run a command as "root" user, put "sudo" front of the command.
 
 Print network informationn. Just like "ipconfig" on Windows
 	$ ifconfig
@@ -117,6 +119,9 @@ To remove software
 To install available updates
 	$ sudo apt-get update
 
+To upgrade the software
+	$ sudo apt upgrade
+
 To restart
 	$ sudo shutdown -r
 
@@ -125,4 +130,26 @@ To shutdown
 	Wait for 10 minutes before shutdown.
 	$ sudo shutdown -h 10
 
+To install package
+	$ sudo apt install <package name> -y
 
+To create new user
+	$ adduser <username>
+
+Print user detail
+	$ id <username>
+
+Assign sudo privileges to a user
+	$ usermod -aG sudo <username>
+
+Disable root login using password
+	$ sudo nano /etc/ssh/sshd_config
+	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
+
+Change owner of file or directory. Here "-R" is for recursive (for all files and directories inside current directory)
+	$ sudo chown -R <username>:<group> <file or directory path>
+
+Install node
+	$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+	It will add package inside repo list. Now, we need to install it
+	$ sudo apt install nodejs -y

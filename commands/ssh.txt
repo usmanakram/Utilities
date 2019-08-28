@@ -1,0 +1,23 @@
+For ssh login, user's public key should be there at server (~/home/<username>/.ssh/authorized_keys)
+
+To generate ssh keys
+	$ ssh-keygen
+	OR
+	$ ssh-keygen -t rsa
+
+Copy public key from local system (~/.ssh/id_rsa.pub) to server (~/.ssh/authorized_keys)
+	$ cat ~/.ssh/id_rsa.pub | ssh <username>@<server ip> "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+
+To connect to the server via SSH, run the following command from a terminal:
+	$ ssh username@ip.add.re.ss
+
+To copy file from local machine to server
+	$ scp <local file path> <username>@<server ip>:<server directory path>
+
+To add private key before using (only first time), if it's name is other than "id_rsa"
+	$ ssh-add <file path of rsa private key>
+	if says "Could not open a connection to your authentication agent." then run following command first
+	$ eval `ssh-agent -s`
+
+To reload sshd service
+	$ sudo systemctl reload sshd
