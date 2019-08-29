@@ -153,3 +153,65 @@ Install node
 	$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 	It will add package inside repo list. Now, we need to install it
 	$ sudo apt install nodejs -y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+remove all apache2 packages
+	sudo apt-get purge apache2*
+
+
+
+As long as there are no errors through any of that then that should be fine. If you want to check apache is listening
+	sudo netstat -anop | grep apache
+
+
+You should see apache listening on port 80. You can also check the status of apache2 by doing
+	sudo service apache2 status
+
+
+	sudo ufw app list
+
+We can check with the systemd init system to make sure the service is running by typing:
+	systemctl status nginx
+
+
+
+
+
+
+To stop your web server, you can type:
+	sudo systemctl stop nginx
+
+To start the web server when it is stopped, type:
+	sudo systemctl start nginx
+
+To stop and then start the service again, type:
+	sudo systemctl restart nginx
+
+If you are simply making configuration changes, Nginx can often reload without dropping connections. To do this, this command can be used:
+	sudo systemctl reload nginx
+
+By default, Nginx is configured to start automatically when the server boots. If this is not what you want, you can disable this behavior by typing:
+	sudo systemctl disable nginx
+
+To re-enable the service to start up at boot, you can type:
+	sudo systemctl enable nginx
