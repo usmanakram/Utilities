@@ -1,5 +1,16 @@
 To run a command as "root" user, put "sudo" front of the command.
 
+Shorten terminal default string
+	$ export PS1="\u$ "
+
+To print your entered commands history
+	$ history
+
+
+
+===================
+Files & Directories
+===================
 Get current directory path
 	$ pwd
 
@@ -18,12 +29,6 @@ Go to system's absolute root
 
 Go to current user's home directory
 	$ cd ~
-
-To connect to the server via SSH, run the following command from a terminal:
-	$ ssh -p 2222 username@ip.add.re.ss
-
-Connect through terminal using rsa key
-	ssh -i <keyfile path> username@ip.add.re.ss
 
 Create file
 	$ touch <file name>
@@ -46,7 +51,7 @@ Edit file
 
 Move file
 	$ mv <1st file path> <2nd file path>
-	An example
+	An example:
 	$ sudo mv -v /home/usman/react-crypto-prices/build/* /var/www/html
 
 Copy file
@@ -81,12 +86,11 @@ To remove a directory that contains other files or directories, use the followin
 Executing the above command would delete all files and directories in the directory named in the command. However, it would also present a prompt for approval to delete each of the files. If you don't want to receive a prompt for each file, use the following command instead.
 	$ rm -rf <directory name>
 
-Shorten terminal default string
-	$ export PS1="\u$ "
 
-To print your entered commands history
-	$ history
 
+======
+System
+======
 Print network informationn. Just like "ipconfig" on Windows
 	$ ifconfig
 
@@ -110,18 +114,6 @@ Print list of devices. like usb
 
 	$ lspci
 
-Package manager (debian & ubuntu uses "apt-get")
-	$ sudu apt-get install <package name>
-
-To remove software
-	$ sudo apt-get remove <package name>
-
-To install available updates
-	$ sudo apt-get update
-
-To upgrade the software
-	$ sudo apt upgrade
-
 To restart
 	$ sudo shutdown -r
 
@@ -130,8 +122,16 @@ To shutdown
 	Wait for 10 minutes before shutdown.
 	$ sudo shutdown -h 10
 
-To install package
-	$ sudo apt install <package name> -y
+
+
+=======================
+User, Group permissions
+=======================
+To display all users run following command:
+	$ compgen -u
+
+To display all groups run following command:
+	$ compgen -g
 
 To create new user
 	$ adduser <username>
@@ -142,26 +142,89 @@ Print user detail
 Assign sudo privileges to a user
 	$ usermod -aG sudo <username>
 
-Disable root login using password
+Disable root ssh login using password
 	$ sudo nano /etc/ssh/sshd_config
 	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
 
 Change owner of file or directory. Here "-R" is for recursive (for all files and directories inside current directory)
 	$ sudo chown -R <username>:<group> <file or directory path>
 
-Install node
-	$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-	It will add package inside repo list. Now, we need to install it
-	$ sudo apt install nodejs -y
+The "chmod" command alters permissions and the -R switch affects all users. Then it is simply giving the correct permissions to use.
+	$ sudo chmod -R 757 <file or directory path>
+
+Helping Link:
+	https://www.linux.com/tutorials/how-manage-file-and-folder-permissions-linux/
 
 
 
+========
+Packages
+========
+To install package ("apt-get" is Package Manager for debian & ubuntu uses)
+	$ sudu apt-get install <package name>
+
+To remove software
+	$ sudo apt-get remove <package name>
+
+Ensure that the service is running with the following command:
+	$ systemctl status <package or service name>
+
+To install available updates
+	$ sudo apt-get update
+
+To upgrade the software
+	$ sudo apt upgrade
 
 
 
+====
+CRON
+====
+Install cron package if necessary.
+	$ sudo apt-get install cron
+
+Ensure that the cron service is running with the following command:
+	$ systemctl status cron
+
+Configure the cron job. When you are logged in as your user, you are creating a cron job under that user. Creating a cron jobs owner is helpful when to know who is in charge of the cron as well as how to alter the cron job in the future.
+	$ crontab -e
+
+Examples:
+Cron for every 1 minute
+	* * * * * /home/test/check.php
+
+Cron for every 5 minutes
+	*/5 * * * * wget http://example.com/check
+	*/5 * * * * curl http://example.com/check/
+
+Helping Link:
+	https://help.ubuntu.com/community/CronHowto
 
 
 
+==========
+Web Server
+==========
+To stop your web server, you can type:
+	$ sudo systemctl stop nginx
+
+To start the web server when it is stopped, type:
+	$ sudo systemctl start nginx
+
+To check whether server is running or not:
+	$ systemctl status nginx
+
+To stop and then start the service again, type:
+	$ sudo systemctl restart nginx
+
+If you are simply making configuration changes, Nginx can often reload without dropping connections. To do this, this command can be used:
+	$ sudo systemctl reload nginx
+
+By default, Nginx is configured to start automatically when the server boots. If this is not what you want, you can disable this behavior by typing:
+	$ sudo systemctl disable nginx
+
+To re-enable the service to start up at boot, you can type:
+	$ sudo systemctl enable nginx
 
 
 
@@ -176,42 +239,34 @@ Install node
 
 
 remove all apache2 packages
-	sudo apt-get purge apache2*
-
+	$ sudo apt-get purge apache2*
 
 
 As long as there are no errors through any of that then that should be fine. If you want to check apache is listening
-	sudo netstat -anop | grep apache
+	$ sudo netstat -anop | grep apache
 
 
 You should see apache listening on port 80. You can also check the status of apache2 by doing
-	sudo service apache2 status
+	$ sudo service apache2 status
 
 
-	sudo ufw app list
-
-We can check with the systemd init system to make sure the service is running by typing:
-	systemctl status nginx
+	$ sudo ufw app list
 
 
 
 
 
 
-To stop your web server, you can type:
-	sudo systemctl stop nginx
 
-To start the web server when it is stopped, type:
-	sudo systemctl start nginx
 
-To stop and then start the service again, type:
-	sudo systemctl restart nginx
+=====
+MySQL
+=====
+To create a database user, type the following command. Replace username with the user you want to create, and replace password with the user's password:
+	GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 
-If you are simply making configuration changes, Nginx can often reload without dropping connections. To do this, this command can be used:
-	sudo systemctl reload nginx
+To explicitly grant the SELECT permission:
+	GRANT SELECT ON *.* TO 'username'@'localhost';
 
-By default, Nginx is configured to start automatically when the server boots. If this is not what you want, you can disable this behavior by typing:
-	sudo systemctl disable nginx
-
-To re-enable the service to start up at boot, you can type:
-	sudo systemctl enable nginx
+MySQL database permissions:
+	https://dev.mysql.com/doc/refman/5.5/en/grant.html

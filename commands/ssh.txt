@@ -9,7 +9,12 @@ Copy public key from local system (~/.ssh/id_rsa.pub) to server (~/.ssh/authoriz
 	$ cat ~/.ssh/id_rsa.pub | ssh <username>@<server ip> "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 
 To connect to the server via SSH, run the following command from a terminal:
+	$ ssh -p 2222 username@ip.add.re.ss
+	OR
 	$ ssh username@ip.add.re.ss
+
+Connect through terminal using rsa key
+	$ ssh -i <keyfile path> username@ip.add.re.ss
 
 To copy file from local machine to server
 	$ scp <local file path> <username>@<server ip>:<server directory path>
@@ -21,3 +26,7 @@ To add private key before using (only first time), if it's name is other than "i
 
 To reload sshd service
 	$ sudo systemctl reload sshd
+
+Disable root ssh login using password
+	$ sudo nano /etc/ssh/sshd_config
+	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
