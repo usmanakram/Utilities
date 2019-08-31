@@ -20,6 +20,14 @@ List down files & directories inside current directory
 	$ ls -a
 	For extra info
 	$ ls -l
+	For author info as well
+	$ ls -author
+	For sort (order by size descending), add 'S' flag
+	$ ls -laS
+	For storing output of command in a file
+	$ ls -laS <path of target directory> > file1.txt
+	Example:
+		$ ls -laS /Users/usmanakram  > file1.txt
 
 To change directory
 	$ cd <directory name>
@@ -49,19 +57,60 @@ Edit file
 	Press ctrl + X for exit
 	Then hit Enter
 
-Move file
-	$ mv <1st file path> <2nd file path>
-	An example:
-	$ sudo mv -v /home/usman/react-crypto-prices/build/* /var/www/html
-
 Copy file
 	$ cp <1st file path> <2nd file path>
+	For interactive mode. CLI ask befor overwriting file
+	$ cp -i <1st file path> <2nd file path>
+	Does not overwrite the file
+	$ cp -n <1st file path> <2nd file path>
+	Update destination file only when source file is different (different content) from destination file
+	$ cp -u <1st file path> <2nd file path>
+	Print info at screen while copying
+	$ cp -v <1st file path> <2nd file path>
+
+	Copy all text files from current directory to Desktop
+	$ cp *.txt /home/user/Desktop
+
+To copy directory
+	$ cp -R <directory path> <location path>
 
 To search file or folder location
 	$ which <file name>
 
 View content of file
 	$ cat <file path>
+	With line number
+	$ cat -n <file path>
+	With line number (only non-blank)
+	$ cat -b <file path>
+	For squize multiple blank lines into one
+	$ cat -s <file path>
+	To append "$" after every line
+	$ cat -e <file path>
+
+View content of multiple files
+	$ cat <1st file path> <2nd file path>
+
+Create new file and put some text
+	$ cat > <file path>
+	Type some content 
+	Press ctrl + d for save & exit
+
+Copy content of 1st file and append into 2nd file
+	$ cat file1.txt >> file2.txt
+
+Move file or directory
+	$ mv <1st file path> <2nd file path>
+	An example:
+	$ sudo mv -v /home/usman/react-crypto-prices/build/* /var/www/html
+
+	For interactive mode. CLI ask befor overwriting file
+	$ mv -i <1st file path> <2nd file path>
+	Update destination file only when source file is different (different content) from destination file
+	$ mv -u <1st file path> <2nd file path>
+	Print info at screen while moving
+	$ mv -v <1st file path> <2nd file path>
+
 
 The most important command is "tail". Tail can be used to read the last lines from a file. Examples:
 Get the last 100 lines from the Debian mail log file:
@@ -70,11 +119,35 @@ Get the last 100 lines from the Debian mail log file:
 To get all newly added lines from a log file in realtime on the shell, use the command:
 	$ tail -f /var/log/mail.log
 
+To search for a particular string/word inside a file
+	$ grep <search text> <file path>
+	For case insensitive
+	$ grep -i <search text> <file path>
+	For display line number as well
+	$ grep -n <search text> <file path>
+	For getting lines other matching word line
+	$ grep -v <search text> <file path>
+	For getting the count of lines having matching word
+	$ grep -c <search text> <file path>
+
+To print file content (sorted)
+	$ sort <file path>
+	For reverse order
+	$ sort -r <file path>
+	For case insensitive
+	$ sort -f <file path>
+	For numeric sort
+	$ sort -n <file path>
+
+To print multiple files content (sorted)
+	$ sort <1st file path> <2nd file path>
+
+Pipe "|" command is used to output the result of one command as input to another command.
+Pipe is used to perform two operations in the same command.
+	$ grep <search text> <file path> | sort
+
 To remove file
 	$ rm <file name>
-
-Create directory
-	$ mkdir <directory name>
 
 To remove directory
 	$ rmdir <directory name>
@@ -85,6 +158,20 @@ To remove a directory that contains other files or directories, use the followin
 
 Executing the above command would delete all files and directories in the directory named in the command. However, it would also present a prompt for approval to delete each of the files. If you don't want to receive a prompt for each file, use the following command instead.
 	$ rm -rf <directory name>
+
+Create directory
+	$ mkdir <directory name>
+	For creating both, a new parent directory and a sub-directory
+	$ mkdir -p <directory name>
+	OR
+	$ mkdir -parents <directory name>
+	Create multiple directories
+	$ mkdir -p folder1/{folder2,folder3,folder4}
+
+Remove directory
+	$ rmdir <directory name>
+	Remove both, parent & child
+	$ rmdir -p
 
 
 
@@ -154,6 +241,18 @@ The "chmod" command alters permissions and the -R switch affects all users. Then
 
 Helping Link:
 	https://www.linux.com/tutorials/how-manage-file-and-folder-permissions-linux/
+
+
+Change permission of file or directory
+	$ chmod
+	Example:
+		$ chmod g+wx,o-w test1.txt
+
+Change owner of file or directory
+	$ chown
+
+Change group ownership of file or directory
+	$ chgrp
 
 
 
