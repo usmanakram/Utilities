@@ -1,4 +1,5 @@
-Create a virtual host:
+=====================
+Create a virtual host
 =====================
 
 1.	create a file "E:\xampp\apache\conf\xnspy\xnspy.local.conf"
@@ -40,3 +41,49 @@ Create a virtual host:
 
 3.	Write a line at the end of file "C:\Windows\System32\drivers\etc\hosts"
 	as ( 127.0.0.1    xnspy.local )
+
+
+
+
+
+
+
+
+================
+vHost files flow
+================
+1) /Applications/XAMPP/xamppfiles/etc/httpd.conf
+	Conntent:
+		# Virtual hosts
+		#Include etc/extra/httpd-vhosts.conf
+		Include "etc/extra/httpd-vhosts.conf"
+
+2) /Applications/XAMPP/xamppfiles/etc/extra/httpd-vhosts.conf
+	Content:
+		Include "/Applications/XAMPP/xamppfiles/apache2/conf/virtual_hosts/projects.local.conf"
+
+
+3) /Applications/XAMPP/xamppfiles/apache2/conf/virtual_hosts/projects.local.conf
+	Content:
+		# localhost
+		<VirtualHost *:80>
+		    ServerName localhost
+		    DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs"
+		    <Directory "/Applications/XAMPP/xamppfiles/htdocs">
+		        Options Indexes FollowSymLinks Includes execCGI
+		        AllowOverride All
+		        Require all granted
+		    </Directory>
+		</VirtualHost>
+
+		# My custom host
+		<VirtualHost *:80>
+		    ServerName projects.local
+		    DocumentRoot "/Volumes/Data/work/projects"
+		    <Directory "/Volumes/Data/work/projects">
+		        Options Indexes FollowSymLinks Includes ExecCGI
+		        AllowOverride All
+		        Require all granted
+		    </Directory>
+		    ErrorLog "logs/projects.local-error_log"
+		</VirtualHost>
