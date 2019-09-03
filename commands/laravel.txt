@@ -38,6 +38,46 @@ To generate event listener:
 event:generate command will automatically import the proper event class and type-hint the event on the handle method. Within the handle method, you may perform any actions necessary to respond to the event:
 	$ php artisan event:generate
 
+========================================
+Keep the socket running with supervisord
+========================================
+To install supervisor
+
+	# On Debian / Ubuntu
+	$ apt install supervisor
+
+	# On Red Hat / CentOS
+	$ yum install supervisor
+	
+	$ systemctl enable supervisor
+
+Once installed, add a new process that supervisor needs to keep running. You place your configurations in the 
+	/etc/supervisor/conf.d (Debian/Ubuntu) 
+	or 
+	/etc/supervisord.d (Red Hat/CentOS) 
+directory.
+Within that directory, create a new file called "websockets.conf".
+	Content:
+		[program:websockets]
+		command=/usr/bin/php /home/laravel-echo/laravel-websockets/artisan websockets:serve
+		numprocs=1
+		autostart=true
+		autorestart=true
+		user=laravel-echo
+
+Once created, instruct supervisor to reload its configuration files (without impacting the already running supervisor jobs).
+
+	$ supervisorctl update
+	$ supervisorctl start websockets
+
+Reference Link:
+	https://docs.beyondco.de/laravel-websockets/1.0/basic-usage/starting.html#keeping-the-socket-server-running-with-supervisord
+
+
+
+
+
+
 php artisan config:cache
 php artisan config:clear
 php artisan cache:clear
