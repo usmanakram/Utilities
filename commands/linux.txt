@@ -326,10 +326,22 @@ To re-enable the service to start up at boot, you can type:
 	$ sudo systemctl enable nginx
 
 
+==========================
+Swap File to extend memory
+==========================
+First, we can create an empty 1GB file by typing:
+	$ sudo fallocate -l 1G /swapfile
 
+We can format it as swap space by typing:
+	$ sudo mkswap /swapfile
 
+Finally, we can enable this space so that the kernel begins to use it by typing:
+	$ sudo swapon /swapfile
 
+The system will only use this space until the next reboot, but the only time that the server is likely to exceed its available memory is during the build processes, so this shouldn’t be a problem.
 
+Reference Link:
+	https://www.digitalocean.com/community/tutorials/how-to-install-laravel-with-an-nginx-web-server-on-ubuntu-14-04#create-swap-file-(optional)
 
 
 
