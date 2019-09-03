@@ -340,10 +340,10 @@ Finally, we can enable this space so that the kernel begins to use it by typing:
 
 The system will only use this space until the next reboot, but the only time that the server is likely to exceed its available memory is during the build processes, so this shouldn’t be a problem.
 
-Reference Link:
+Reference Links:
 	https://www.digitalocean.com/community/tutorials/how-to-install-laravel-with-an-nginx-web-server-on-ubuntu-14-04#create-swap-file-(optional)
 
-
+	https://stackoverflow.com/questions/18116261/php-composer-update-cannot-allocate-memory-error-using-laravel-4
 
 
 
@@ -352,14 +352,11 @@ Reference Link:
 remove all apache2 packages
 	$ sudo apt-get purge apache2*
 
-
 As long as there are no errors through any of that then that should be fine. If you want to check apache is listening
 	$ sudo netstat -anop | grep apache
 
-
 You should see apache listening on port 80. You can also check the status of apache2 by doing
 	$ sudo service apache2 status
-
 
 	$ sudo ufw app list
 
