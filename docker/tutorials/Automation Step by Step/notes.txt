@@ -29,7 +29,7 @@ To add new user
 To get docker info
 	docker info
 
-To vie images
+To view images
 	docker images
 
 To view running containers

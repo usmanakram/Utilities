@@ -1,2 +1,265 @@
-Container's terminal
-	docker exec -it <container name> bash -l
+======
+System
+======
+To check docker version
+	$ docker --version
+
+To get docker info
+	$ docker info
+
+To view the detail of running containers
+	$ docker stats
+
+To view disc usage of docker 
+	$ docker system df
+
+To remove unused data
+	$ docker system prune
+
+=====
+Image
+=====
+Download image from repository
+	$ docker pull <image name>:<tag OR version>
+
+List down all downloaded images
+	$ docker images
+	
+	For images (have not associated with containers)
+	$ docker images -f "dangling=false"
+	
+	For IDs of images (have not associated with containers)
+	$ docker images -f "dangling=false" -q
+
+
+Delete image
+	$ docker image rm <image ID OR first 3 characters of image ID>
+	OR
+	$ docker rmi <image name>
+	
+	For forced remove
+	$ docker rmi -f <image name>
+
+To create own image
+	$ docker image build -t <your username>/<your image name> .
+	Example:
+	$ docker image build -t usmanakram99/nginx-website .
+
+Notes:
+	- Containers are the running instances of docker images. Whenever you run an image it creates a container.
+	- Docker build is used to create a docker image using docker file.
+
+Push image to docker hub
+	$ docker push <your username>/<your image name>
+	Example:
+	$ docker push usmanakram99/nginx-website
+
+To inspect image
+	$ docker inspect "image name"
+
+To view the history of image
+	$ docker history "image name/ID"
+
+=========
+Container
+=========
+To run (auto pull before run, if do not exist locally) an image
+	$ docker run "image name"
+	Examples:
+		docker container run -d -p 8080:80 --name mynginx nginx
+		docker container run -d -p 8081:80 --name myapache httpd
+		docker container run -d -p 8081:80 --name myphp7.3 php:7.3-apache
+		docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
+
+	Example: Create server with setting up files directory (bind mount), "$(pwd)" represents current directory
+	$ docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx
+
+	For interactive mode
+	$ docker run -it <image name>
+
+	For named container with interactive mode
+	$ docker run --name MyUbuntu1 -it ubuntu bash
+
+To stop running container
+	$ docker container stop <container name>
+	OR
+	$ docker stop "container id/name"
+
+To start container
+	$ docker start "container id/name"
+
+To pause the running container
+	$ docker pause ContainerName/ID
+
+To unpause the container
+	$ docker unpause ContainerName/ID
+
+List down all running containers
+	$ docker ps
+	
+	For all containers
+	$ docker ps -a
+
+To attach the container
+	$ docker attach ContainerName/ID
+
+To kill or remove the running container
+	$ docker kill ContainerName/ID
+
+To remove container
+	$ docker container rm <container ID OR first 3 characters of container ID>
+	OR
+	$ docker rm ContainerName/ID
+
+Remove all containers
+	$ docker rm $(docker ps -aq)
+	
+	For forcefully, append -f
+	$ docker rm $(docker ps -aq) -f
+
+Go inside running container
+	$ docker container exec -it <container name> bash -l
+
+To view processes of the container
+	$ docker top ContainerName/ID
+
+To view the stats of the running container
+	$ docker stats ContainerName/ID
+
+==============
+docker-compose
+==============
+	$ docker-compose -v
+	OR
+	$ docker-compose --version
+
+	$ docker-compose version
+
+Check the validity of file (docker-compose.yml) by command
+	$docker-compose config
+
+Run docker-compose.yml file by command
+	$ docker-compose up -d
+	
+	Scale up service described inside docker-compose.yml
+	$ docker-compose up -d --scale database=4
+
+Bring down application by command
+	$ docker-compose down
+
+=======
+Volumes
+=======
+For info
+	$ docker volume
+
+To create volume
+	$ docker volume create
+
+List down volumes
+	$ docker volume ls
+
+Inspect volume
+	$ docker volume inspect
+
+To remove volume
+	$ docker volume rm
+
+Remove all unused volumes
+	$ docker volume prune
+
+======================
+Docker Machine & SWARM
+======================
+To check whether docker machine installed
+	$ docker-machine -v
+
+Create Docker machines
+	FOR WINDOWS
+	$ docker-machine create --driver hyperv <machine name>
+	Example:
+	$ docker-machine create --driver hyperv manager1
+	
+	FOR MAC
+	$ docker-machine create --driver virtualbox <machine name>
+	Example:
+	$ docker-machine create --driver virtualbox manager1
+
+List down docker machines
+	$ docker-machine ls
+
+Get the IP of docker-machine
+	$ docker-machine ip <machine name>
+
+SSH (connect) to docker machines
+	$ docker-machine ssh <machine name>
+
+Initialize Docker Swarm
+	Run following command on machine which you want to make manager.
+	$ docker swarm init --advertise-addr MANAGER_IP
+
+List down SWARM nodes (this command will work only in swarm manager, not in worker)
+	$ docker node ls
+
+TO JOIN WORKERS IN THE SWARM
+	In manager node run following command, to get command for joining as worker
+	This will give command to join swarm as worker
+	$ docker swarm join-token worker
+    
+	This will give command to join swarm as manager
+	$ docker swarm join-token manager
+
+	SSH into worker node (machine) and run command to join swarm as worker
+
+
+
+
+
+To Run containers on Docker Swarm
+	$ docker service create --replicas 3 -p 80:80 --name serviceName nginx
+
+$o check the status:
+	$ docker service ls
+	OR
+	$ docker service ps serviceName
+
+To scale service up and down (On manager node)
+	$ docker service scale serviceName=2
+
+To inspecting Nodes (this command can run only on manager node)
+	$ docker node inspect nodename
+
+To Shutdown node
+	$ docker node update --availability drain <node name>
+
+To update service
+	$ docker service update --image <imagename>:<version> <service name>
+	Example:
+	$ docker service update --image nginx:1.14.0 web
+
+To remove service
+	$ docker service rm serviceName
+
+To leave the swarm, run on leaving node
+	$ docker swarm leave
+
+To stop the machine, run on main terminal (outside any machine)
+	$ docker-machine stop machineName
+
+To remove the machine, run on main terminal (outside any machine)
+	$ docker-machine rm machineName
+
+
+REFERENCES:
+https://docs.docker.com/get-started/part4/#create-a-cluster
+https://rominirani.com/docker-swarm-tutorial-b67470cf8872
+
+
+
+
+
+
+
+
+
+
