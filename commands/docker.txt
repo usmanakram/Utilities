@@ -168,6 +168,16 @@ To remove volume
 Remove all unused volumes
 	$ docker volume prune
 
+========
+Networks
+========
+Docker creates three networks automatically on install: "bridge", "none", and "host". Specify which network a container should use with the --net flag. If you create a new network my_network, you can connect your container (my_container) with:
+
+	$ docker run my_container --net=my_network
+
+Reference Link:
+	https://runnable.com/docker/basic-docker-networking
+
 ======================
 Docker Machine & SWARM
 ======================

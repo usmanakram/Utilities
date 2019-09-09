@@ -3,6 +3,9 @@ Dump:
 	Example:
 	mysqldump osmalldb uom > uom.sql
 
+	For all databases
+	mysqldump --all-databases -u root -p > seed.sql
+
 Dump from a remote database:
 	mysqldump -u <db_username> -h <db_host> -p db_name table_name > table_name.sql
 	Examples:
