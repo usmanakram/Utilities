@@ -332,6 +332,7 @@ To re-enable the service to start up at boot, you can type:
 	$ sudo systemctl enable nginx
 
 
+
 ==========================
 Swap File to extend memory
 ==========================
@@ -350,6 +351,63 @@ Reference Links:
 	https://www.digitalocean.com/community/tutorials/how-to-install-laravel-with-an-nginx-web-server-on-ubuntu-14-04#create-swap-file-(optional)
 
 	https://stackoverflow.com/questions/18116261/php-composer-update-cannot-allocate-memory-error-using-laravel-4
+
+
+
+========================
+Examples of curl request
+========================
+/*
+GET ALL POSTS:
+*/
+
+curl -X GET \
+http://localhost:8000/api/posts \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <TOKEN>'
+
+/*
+GET SINGLE POST WITH ID: 1
+*/
+
+curl -X GET \
+http://localhost:8000/api/posts/1 \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <TOKEN>'
+
+/*
+UPDATE POST WITH ID: 1, SETTING TITLE AND CONTENT
+*/
+
+curl -X PUT \
+http://localhost:8000/api/posts/1 \
+-d '{ "title": "New title", "content" : "New description" }' \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <TOKEN>'
+
+/*
+DELETE POST WITH ID: 1
+*/
+
+curl -X "DELETE" \
+http://localhost:8000/api/posts/1 \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <TOKEN>'
+
+/*
+CREATE NEW POST, WITH TITLE: 'New posts' AND CONTENT: 'New post description'
+*/
+
+curl -X POST \
+http://localhost:8000/api/posts \
+-d '{ "title": "New post", "content" : "New post description" }' \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <TOKEN>'
 
 
 
