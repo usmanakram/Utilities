@@ -50,6 +50,8 @@ Edit file
 	Press "i" for insert mode
 	Enter anthing you want to put as content
 	Press Esc then ":wq!" for save & exit
+	OR
+	Press Esc then ":q!" to quit withoug saving changes
 
 Edit file
 	$ nano <file name>
@@ -59,12 +61,16 @@ Edit file
 
 Copy file
 	$ cp <1st file path> <2nd file path>
+
 	For interactive mode. CLI ask befor overwriting file
 	$ cp -i <1st file path> <2nd file path>
+	
 	Does not overwrite the file
 	$ cp -n <1st file path> <2nd file path>
+	
 	Update destination file only when source file is different (different content) from destination file
 	$ cp -u <1st file path> <2nd file path>
+	
 	Print info at screen while copying
 	$ cp -v <1st file path> <2nd file path>
 
