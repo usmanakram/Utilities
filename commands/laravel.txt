@@ -99,6 +99,16 @@ numprocs=1
 redirect_stderr=true
 stdout_logfile=/var/www/html/bittrain_exchange_api/storage/logs/worker.log
 
+[program:laravel-exchange-stats-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=/usr/bin/php /var/www/html/bittrain_exchange_api/artisan queue:work --queue=exchange-stats --sleep=3 --tries=10
+autostart=true
+autorestart=true
+user=root
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/var/www/html/bittrain_exchange_api/storage/logs/laravel-exchange-stats-worker.log
+
 
 $ sudo supervisorctl reread
 $ sudo supervisorctl update
