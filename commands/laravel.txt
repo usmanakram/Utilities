@@ -73,8 +73,36 @@ Once created, instruct supervisor to reload its configuration files (without imp
 Reference Link:
 	https://docs.beyondco.de/laravel-websockets/1.0/basic-usage/starting.html#keeping-the-socket-server-running-with-supervisord
 
+========================================
+Keep the worker running with supervisord
+========================================
+
+[program:laravel-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /home/forge/app.com/artisan queue:work sqs --sleep=3 --tries=3
+autostart=true
+autorestart=true
+user=forge
+numprocs=8
+redirect_stderr=true
+stdout_logfile=/home/forge/app.com/worker.log
 
 
+LIVE (aws):
+[program:laravel-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=/usr/bin/php /var/www/html/bittrain_exchange_api/artisan queue:work --sleep=3 --tries=10
+autostart=true
+autorestart=true
+user=root
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/var/www/html/bittrain_exchange_api/storage/logs/worker.log
+
+
+$ sudo supervisorctl reread
+$ sudo supervisorctl update
+$ sudo supervisorctl start laravel-worker:*
 
 
 
