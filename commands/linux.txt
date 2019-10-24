@@ -331,6 +331,13 @@ By default, Nginx is configured to start automatically when the server boots. If
 To re-enable the service to start up at boot, you can type:
 	$ sudo systemctl enable nginx
 
+To find "php.ini" file
+	$ php -i | grep 'Configuration File'
+
+Add extension in file
+	$ echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+	RUN echo "extension=mongodb.so" >> /opt/bitnami/php/etc/php.ini
+
 
 
 ==========================
@@ -442,3 +449,8 @@ To explicitly grant the SELECT permission:
 
 MySQL database permissions:
 	https://dev.mysql.com/doc/refman/5.5/en/grant.html
+
+
+
+
+

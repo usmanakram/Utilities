@@ -94,3 +94,23 @@ If you require full output or referential integrity is intact:
 
 To list down all configuration settings with origins where they defined
 	$ git config --list --show-origin
+
+====
+TAGs
+====
+Create tag
+	$ git tag -a v1.0.0 -m "initial release"
+
+Push local tags to remote repository
+	$ git push --tags
+
+Delete local tag '12345'
+	$ git tag -d 12345
+
+Delete remote tag '12345' (eg, GitHub version too)
+	$ git push origin :refs/tags/12345
+
+Alternative approach
+	$ git push --delete origin tagName
+	$ git tag -d tagName
+
