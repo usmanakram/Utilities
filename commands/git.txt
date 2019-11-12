@@ -54,6 +54,25 @@ git diff [source branch] [target branch]	"Preview changes before merging"
 Reference Link: https://github.com/joshnh/Git-Commands
 
 
+For checking difference between two commits
+	$ git diff oldCommit..newCommit
+	Example:
+	$ git diff k73ud..dj374 
+
+OR (1 space, not more):
+	$ git diff oldCommit newCommit
+	Example:
+	$ git diff k73ud dj374
+
+OR if we need to get only files names (e.g. to copy hotfix them manually):
+	$ git diff k73ud dj374 --name-only
+
+And we can get changes applied to another branch:
+	$ git diff k73ud dj374 > my.patch
+	$ git apply my.patch
+
+Reference Link: https://stackoverflow.com/questions/3368590/show-diff-between-commits/51139381
+
 
 
 Initialize the local directory as a Git repository.
