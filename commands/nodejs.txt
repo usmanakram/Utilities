@@ -34,27 +34,28 @@ Remove default configuration
 	OR
 	$ npm delete init-author-name
 
-Install local package
-	$ npm install <package name> --save
-	OR
-	$npm install <package name> --save-dev
-
-Remove module
-	$ npm uninstall <package name> --save-dev
-	OR
-	$ npm remove <package name> --save-dev
-
-Install global package
+Install package
+	$ npm install <package name>
+	For specific version
+	$ npm install <package name>@<version>
+	OR install as a dev dependency
+	$ npm install <package name> --save-dev
+	For global
 	$ npm install -g <package name>
 
-Remove global module
+Remove packages
+	$ npm uninstall <package name>
+	OR
+	$ npm un <package name>
+	OR
+	$ npm remove <package name>
+	For global
 	$ npm remove -g <package name>
 
 Find global package root folder
 	$ npm root -g
 
-Install specific version
-	$ npm install <package name>@<version> --save
+
 
 Update installed module version
 	$ npm update <package name>
@@ -70,11 +71,25 @@ For global packages
 You can get the version of a specific package by specifying the name:
 	$ npm list [package name]
 
-If you want to see what’s the latest available version of the package on the npm repository, run 
-	$ npm view [package name] version
+To view package detail
+	$ npm view [package name]
+
+If you want to see any specific property of project.json, run 
+	$ npm view [package name] [property name]
+	i.e.
+	$ npm view [package name] dependencies
+
+For list down all released versions
+	$ npm view [package name] versions
 
 Install Lice Server locally
 	$ npm install live-server --save-dev
 
 To install only regular dependencies (DevDependencies will be ignored)
 	$ npm install --production
+
+To display outdated packages
+	$ npm outdated
+
+To upgrade outdated packages
+	$ npm update
