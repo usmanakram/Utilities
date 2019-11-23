@@ -126,6 +126,9 @@ To view processes of the container
 To view the stats of the running container
 	$ docker stats ContainerName/ID
 
+To copy file from local system to inside docker container
+	$ docker cp <source file> <container name or id>:<destination path with file name>
+
 ==============
 docker-compose
 ==============
