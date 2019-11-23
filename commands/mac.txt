@@ -1,0 +1,23 @@
+To print open ports
+	$ sudo lsof -iTCP -sTCP:LISTEN -n -P
+
+To print detail of specific port
+	$ sudo lsof -iTCP:80 -sTCP:LISTEN -n -P
+	$ sudo lsof -nP -iTCP:80 -sTCP:LISTEN
+
+
+====
+CRON
+====
+
+Reference Link:
+	https://ole.michelsen.dk/blog/schedule-jobs-with-crontab-on-mac-osx.html
+
+====
+Mail
+====
+Run
+	$ mail
+
+Mail file location:
+	/private/var/mail/<username>
