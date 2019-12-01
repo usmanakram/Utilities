@@ -20,3 +20,12 @@ To drop database
 
 To import from a json file
 	$ mongoimport --db <database name> --collection <collection name> --file <json file path> --jsonArray
+
+To import from complete folder
+	$ cd <json files directory path>
+	$ ls -1 *.json | while read jsonfile; do mongoimport -d <database name> --file $jsonfile --type json; done
+
+To restore
+	$ mongorestore --port=<27017 is default port> --db <database name> <dumped files directory path>
+	Example:
+	$ mongorestore --db RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
