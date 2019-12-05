@@ -114,6 +114,13 @@ $ sudo supervisorctl reread
 $ sudo supervisorctl update
 $ sudo supervisorctl start laravel-worker:*
 
+=====================
+Cron: Task Scheduling
+=====================
+Add following cron for laravel Task Scheduling.
+	* * * * * php <path of project's root>/artisan schedule:run >> /dev/null 2>&1
+
+
 
 
 php artisan config:cache

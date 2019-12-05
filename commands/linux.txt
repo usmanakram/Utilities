@@ -295,16 +295,15 @@ Configure the cron job. When you are logged in as your user, you are creating a 
 	$ crontab -e
 
 Examples:
-Cron for every 1 minute
+Cron for every 1 minute (running a script)
 	* * * * * /home/test/check.php
 
-Cron for every 5 minutes
+Cron for every 5 minutes (hitting a url)
 	*/5 * * * * wget http://example.com/check
 	*/5 * * * * curl http://example.com/check/
 
 Helping Link:
 	https://help.ubuntu.com/community/CronHowto
-
 
 
 ==========
@@ -338,6 +337,10 @@ Add extension in file
 	$ echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 	RUN echo "extension=mongodb.so" >> /opt/bitnami/php/etc/php.ini
 
+
+Apache and PHP log files directory:
+	By default, /var/log/apache2/error.log.
+	This can be configured in /etc/php5/apache2/php.ini.
 
 
 ==========================
