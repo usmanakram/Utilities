@@ -306,6 +306,43 @@ Helping Link:
 	https://help.ubuntu.com/community/CronHowto
 
 
+Cron for run after 30 seconds of sleep
+	* * * * * sleep 30; wget http://example.com/check
+
+
+To start the cron service (for Debian or Ubuntu or Mint), use:
+	# /etc/init.d/cron start
+	OR
+	$ sudo /etc/init.d/cron start
+	OR
+	$ sudo service cron start
+
+To stop the cron service(for Debian or Ubuntu or Mint), use:
+	# /etc/init.d/cron stop
+	OR
+	$ sudo /etc/init.d/cron stop
+	OR
+	$ sudo service cron stop
+
+To restart the cron service(for Debian or Ubuntu or Mint), use:
+	# /etc/init.d/cron restart
+	OR
+	$ sudo /etc/init.d/cron restart
+	OR
+	$ sudo service cron restart
+
+Reference Link:
+	https://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/
+
+
+Do a full process list and grep for cron
+	$ ps aux | grep cron
+
+Reference Link:
+	https://stackoverflow.com/questions/24012666/why-my-cron-job-executing-multiple-times
+
+sudo service cron reload
+
 ==========
 Web Server
 ==========
