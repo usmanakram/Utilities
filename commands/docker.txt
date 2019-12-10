@@ -157,19 +157,21 @@ For info
 	$ docker volume
 
 To create volume
-	$ docker volume create
+	$ docker volume create --name <volume name>
 
 List down volumes
 	$ docker volume ls
 
 Inspect volume
-	$ docker volume inspect
+	$ docker volume inspect <volume name>
 
 To remove volume
-	$ docker volume rm
+	$ docker volume rm <volume name>
 
 Remove all unused volumes
 	$ docker volume prune
+	Remove without confirmation
+	$ docker volume prune -f
 
 ========
 Networks
