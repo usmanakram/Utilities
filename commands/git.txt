@@ -1,18 +1,18 @@
 To set username & email address:
-	git config --global user.name "John Doe"
-	git config --global user.email johndoe@example.com
+	$ git config --global user.name "John Doe"
+	$ git config --global user.email johndoe@example.com
 
 To check your configuration settings at perticular point:
-	git config --list
+	$ git config --list
 
 You can also check what Git thinks a specific key’s value is by typing git config <key>:
-	git config user.name
+	$ git config user.name
 
 To check, configuration source file for a particular config key
-	git config --show-origin user.name
+	$ git config --show-origin user.name
 
 Undo changes in a file (before "git add <file path>")
-	git checkout -- <file path>
+	$ git checkout -- <file path>
 
 
 
@@ -24,32 +24,32 @@ Refrence: Pro Git (Book)
 
 Basic
 =====
-git status		"check status"
+$ git status		"check status"
 
 
 Branching & Merging
 ===================
-git branch											"List branches (the asterisk denotes the current branch)"
-git branch -a										"List all branches (local and remote)"
-git branch [branch name]							"Create a new branch"
-git branch -d [branch name]							"Delete a branch"
-git push origin --delete [branchName]				"Delete a remote branch"
-git checkout -b [branch name]						"Create a new branch and switch to it"
-git checkout -b [branch name] origin/[branch name]	"Clone a remote branch and switch to it"
-git checkout [branch name]							"Switch to a branch"
-git checkout -										"Switch to the branch last checked out"
-git checkout -- [file-name.txt]						"Discard changes to a file"
-git merge [branch name]								"Merge a branch into the active branch"
-git merge [source branch] [target branch]			"Merge a branch into a target branch"
-git stash											"Stash changes in a dirty working directory"
-git stash clear										"Remove all stashed entries"
+$ git branch											"List branches (the asterisk denotes the current branch)"
+$ git branch -a										"List all branches (local and remote)"
+$ git branch [branch name]							"Create a new branch"
+$ git branch -d [branch name]							"Delete a branch"
+$ git push origin --delete [branchName]				"Delete a remote branch"
+$ git checkout -b [branch name]						"Create a new branch and switch to it"
+$ git checkout -b [branch name] origin/[branch name]	"Clone a remote branch and switch to it"
+$ git checkout [branch name]							"Switch to a branch"
+$ git checkout -										"Switch to the branch last checked out"
+$ git checkout -- [file-name.txt]						"Discard changes to a file"
+$ git merge [branch name]								"Merge a branch into the active branch"
+$ git merge [source branch] [target branch]			"Merge a branch into a target branch"
+$ git stash											"Stash changes in a dirty working directory"
+$ git stash clear										"Remove all stashed entries"
 
 
 Inspection & Comparison
 =======================
-git log										"View changes"
-git log --summary							"View changes (detailed)"
-git diff [source branch] [target branch]	"Preview changes before merging"
+$ git log										"View changes"
+$ git log --summary							"View changes (detailed)"
+$ git diff [source branch] [target branch]	"Preview changes before merging"
 
 Reference Link: https://github.com/joshnh/Git-Commands
 
@@ -78,24 +78,24 @@ Reference Link: https://stackoverflow.com/questions/3368590/show-diff-between-co
 START: Adding an existing project to GitHub using the command line
 ==================================================================
 Initialize the local directory as a Git repository.
-	git init
+	$ git init
 
 Add the files in your new local repository. This stages them for the first commit.
-	git add .
+	$ git add .
 	# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
 
 Commit the files that you've staged in your local repository.
-	git commit -m "First commit"
+	$ git commit -m "First commit"
 	# Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
 
 In Terminal, add the URL for the remote repository where your local repository will be pushed.
-	git remote add origin [remote repository URL]
+	$ git remote add origin [remote repository URL]
 	# It will set the new remote
-	git remote -v
+	$ git remote -v
 	# Verifies the new remote URL
 
 Push the changes in your local repository to GitHub.
-	git push -u origin master
+	$ git push -u origin master
 	# Pushes the changes in your local repository up to the remote repository you specified as the origin
 
 Refrence Link: https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
@@ -123,6 +123,10 @@ If you require full output or referential integrity is intact:
 
 To list down all configuration settings with origins where they defined
 	$ git config --list --show-origin
+
+
+To rename file
+	$ git mv [old file path] [new file path]
 
 ====
 TAGs
