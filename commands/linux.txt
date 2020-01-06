@@ -457,6 +457,22 @@ http://localhost:8000/api/posts \
 -H 'Authorization: Bearer <TOKEN>'
 
 
+========================
+Download file using curl
+========================
+$ curl https://github.com/usmanakram/react-crypto-prices/archive/master.zip -O -J -L
+
+Options:
+	use -L in case there is a redirect found.
+	use -O for remote filenames (master.zip)
+	use -J (use with -O) to allow remote header filename (xampp-cli-master.zip)
+
+Or use -o to create your own filename:
+	$ curl https://github.com/usmanakram/react-crypto-prices/archive/master.zip -L -o MyFilename.zip
+
+Reference link:
+	https://askubuntu.com/questions/285976/download-zip-file-with-curl-command
+
 
 
 
