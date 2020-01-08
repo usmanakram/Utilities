@@ -37,3 +37,12 @@ To shows the mode and SSID name in use, max number of clients that can connect, 
 To show network security key among other settings, similar to the previous command:
 	NETSH WLAN show hostednetwork setting=security
 ################################### END: Wifi Hotspot ###################################
+
+
+
+
+To display all wifi profiles ever connected to
+	netsh wlan show profile
+
+To show the password of all networks/profiles
+	netsh wlan export profile folder=D:\wifi\ key=clear
