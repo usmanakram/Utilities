@@ -6,6 +6,16 @@ To print detail of specific port
 	$ sudo lsof -nP -iTCP:80 -sTCP:LISTEN
 
 
+To change the ownership of directories to your user.
+  $ sudo chown -R $(whoami) <directory-path>
+  Example:
+  $ sudo chown -R $(whoami) /usr/local/lib/pkgconfig
+
+And make sure that your user has write permission.
+  $ chmod u+w /usr/local/lib/pkgconfig
+
+
+
 ====
 CRON
 ====
