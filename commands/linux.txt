@@ -239,7 +239,7 @@ Disable root ssh login using password
 	$ sudo nano /etc/ssh/sshd_config
 	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
 
-Change owner of file or directory. Here "-R" is for recursive (for all files and directories inside current directory)
+Change owner and group of file or directory. Here "-R" is for recursive (for all files and directories inside current directory)
 	$ sudo chown -R <username>:<group> <file or directory path>
 
 The "chmod" command alters permissions and the -R switch affects all users. Then it is simply giving the correct permissions to use.
