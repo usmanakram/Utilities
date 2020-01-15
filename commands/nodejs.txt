@@ -56,6 +56,16 @@ Find global package root folder
 	$ npm root -g
 
 
+Example: "lodash": "^4.17.4"
+	Having version number with "^" means "npm install" will install latest minor version.
+	Having version number with "~" means "npm install" will install latest patch version.
+
+Example: "lodash": "4.17.4"
+	Having version number without any symbol means "npm install" will install exact version.
+
+Example: "lodash": "*"
+	Having version number as "*" means "npm install" will install latest major version.
+
 
 Update installed module version
 	$ npm update <package name>
@@ -82,7 +92,7 @@ If you want to see any specific property of project.json, run
 For list down all released versions
 	$ npm view [package name] versions
 
-Install Lice Server locally
+Install Live Server locally
 	$ npm install live-server --save-dev
 
 To install only regular dependencies (DevDependencies will be ignored)
