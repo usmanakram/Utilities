@@ -262,6 +262,61 @@ Change group ownership of file or directory
 
 
 
+
+=============================
+START: Linux File Permissions
+=============================
+To change directory permissions in Linux, use the following:
+
+To add permissions.
+	$ chmod +rwx filename
+To remove permissions
+	$ chmod -rwx directoryname
+To allow executable permissions
+	$ chmod +x filename
+To take out write and executable permissions
+	$ chmod -wx filename
+
+Note that "r" is for read, "w" is for write, and "x" is for execute. 
+This only changes the permissions for the owner of the file.
+
+
+The command for changing directory permissions for group owners is similar, but add a "g" for group or "o" for users:
+
+	$ chmod g+w filename
+	$ chmod g-wx filename
+	$ chmod o+w filename
+	$ chmod o-rwx foldername
+
+
+To change directory permissions for everyone, use "u" for users, "g" for group, "o" for others, and "ugo" or "a" (for all).
+
+To give read, write, and execute to everyone.
+	$ chmod ugo+rwx foldername
+To give only read permission for everyone.
+	$ chmod a=r foldername
+
+
+Permission numbers are:
+	0 = ---
+	1 = --x
+	2 = -w-
+	3 = -wx
+	4 = r-
+	5 = r-x
+	6 = rw-
+	7 = rwx
+
+
+Reference Link:
+	https://www.pluralsight.com/blog/it-ops/linux-file-permissions
+===========================
+END: Linux File Permissions
+===========================
+
+
+
+
 ========
 Packages
 ========
