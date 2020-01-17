@@ -55,7 +55,7 @@ Edit file
 
 Edit file
 	$ nano <file name>
-	Enter anthing you want to put as content
+	Enter anything you want to put as content
 	Press ctrl + X for exit
 	Then hit Enter
 
@@ -155,9 +155,6 @@ Pipe is used to perform two operations in the same command.
 To remove file
 	$ rm <file name>
 
-To remove directory
-	$ rmdir <directory name>
-
 To remove a directory that contains other files or directories, use the following command.
 	$ rm -r <directory name>
 	$ rm -R <directory name>
@@ -177,7 +174,7 @@ Create directory
 Remove directory
 	$ rmdir <directory name>
 	Remove both, parent & child
-	$ rmdir -p
+	$ rmdir -p <parent>/<child>
 
 
 
