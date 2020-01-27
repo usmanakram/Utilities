@@ -1,0 +1,2 @@
+To add column in existing table
+	$ rails generate migration AddMiningStatusToUsers mining_status:boolean
