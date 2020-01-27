@@ -562,7 +562,3 @@ MySQL database permissions:
 
 
 
-
-
-HostGator Server
-RSA key fingerprint is SHA256:w7SRrbo28VTq21A32I33UgTQK/55TzaO1OdLSfzXyNc.
