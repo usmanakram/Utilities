@@ -54,6 +54,13 @@ $ git diff [source branch] [target branch]	"Preview changes before merging"
 Reference Link: https://github.com/joshnh/Git-Commands
 
 
+To print the log of specified file
+	$ git log --follow [file path]
+	For Detaild View
+	$ git log --follow -p -- [file path]
+
+
+
 For checking difference between two commits
 	$ git diff oldCommit..newCommit
 	Example:
