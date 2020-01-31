@@ -59,6 +59,9 @@ To print the log of specified file
 	For Detaild View
 	$ git log --follow -p -- [file path]
 
+To view the log of specified file
+	$ gitk [file path]
+
 
 
 For checking difference between two commits
