@@ -114,6 +114,15 @@ END: Adding an existing project to GitHub using the command line
 ================================================================
 
 
+Clone all branches and checkout specified branch
+	$ git clone --branch [branch name] [remote repository url]
+
+Clone single branch (prevent fetching of all branches)
+	$ git clone --branch [branch name] --single-branch [remote repository url]
+
+Clone last commit from specified branch
+	$ git clone --branch [branch name] --depth 1 [remote repository url]
+
 Changing a remote's URL
 	$ git remote set-url [remote name] [remote url]
 	Example:
