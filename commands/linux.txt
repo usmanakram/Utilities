@@ -232,6 +232,9 @@ Print user detail
 Assign sudo privileges to a user
 	$ usermod -aG sudo <username>
 
+Add user into a user group
+	$ usermod -aG <user group> <user>
+
 Disable root ssh login using password
 	$ sudo nano /etc/ssh/sshd_config
 	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
@@ -250,6 +253,11 @@ Change permission of file or directory
 	$ chmod
 	Example:
 		$ chmod g+wx,o-w test1.txt
+
+	Change directory(and all child directories) permission
+		$ find </path/to/your/directory> -type d -exec chmod 755 {} \;
+	Change all child directories' files permission
+		$ find </path/to/your/directory> -type f -exec chmod 644 {} \;
 
 Change owner of file or directory
 	$ chown
