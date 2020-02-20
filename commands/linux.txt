@@ -212,6 +212,8 @@ To shutdown
 	Wait for 10 minutes before shutdown.
 	$ sudo shutdown -h 10
 
+List down directories and sizes
+	$ du -h --max-depth=1 <parent directory path>
 
 
 =======================
