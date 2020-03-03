@@ -215,6 +215,14 @@ To shutdown
 List down directories and sizes
 	$ du -h --max-depth=1 <parent directory path>
 
+Check os version
+Type any one of the following command to find os name and version in Linux:
+	$ cat /etc/os-release
+	$ lsb_release -a
+	$ hostnamectl
+
+To find Linux kernel version:
+	$ uname -r
 
 =======================
 User, Group permissions
@@ -309,7 +317,7 @@ Permission numbers are:
 	1 = --x
 	2 = -w-
 	3 = -wx
-	4 = r-
+	4 = r--
 	5 = r-x
 	6 = rw-
 	7 = rwx
