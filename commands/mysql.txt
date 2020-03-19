@@ -28,3 +28,43 @@ Dump
 
 Restore
 	gunzip < table_name.sql.gz | mysql -u username -p db_name
+
+
+
+===========================
+START: USER AND PERMISSIONS
+===========================
+To create a new user
+	$ CREATE USER <username>@<host> IDENTIFIED BY <password>;
+	Example
+		$ CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+
+To grant permissions
+	$ GRANT ALL PRIVILEGES ON <database name>.<table name> TO <username>@<host>;
+	Examples
+		$ GRANT ALL PRIVILEGES ON database.table TO 'user'@'localhost';
+		For all tables of specified database
+		$ GRANT ALL PRIVILEGES ON database.* TO 'user'@'localhost';
+		For all tables of all databases;
+		$ GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
+
+
+Here is a list of the MySQL privileges which are most commonly used:
+	ALL PRIVILEGES – grants all privileges to the MySQL user
+	CREATE – allows the user to create databases and tables
+	DROP - allows the user to drop databases and tables
+	DELETE - allows the user to delete rows from specific MySQL table
+	INSERT - allows the user to insert rows into specific MySQL table
+	SELECT – allows the user to read the database
+	UPDATE - allows the user to update table rows
+
+Here is a sample syntax where only three privileges are granted for the user:
+	$ GRANT SELECT, INSERT, DELETE ON database.* TO 'user'@'localhost';
+
+To remove existing mysql user
+	$ DROP USER 'user'@'localhost';
+
+Reference Link: https://kyup.com/tutorials/create-new-user-grant-permissions-mysql/
+=========================
+END: USER AND PERMISSIONS
+=========================
