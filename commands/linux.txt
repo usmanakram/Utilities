@@ -250,7 +250,7 @@ Disable root ssh login using password
 	Change propertey "PermitRootLogin" from "yes" to "no" and "PasswordAuthentication" from "yes" to "no"
 
 Change owner and group of file or directory. Here "-R" is for recursive (for all files and directories inside current directory)
-	$ sudo chown -R <username>:<group> <file or directory path>
+	$ sudo chown -R <username>:<group> [<file or directory path> <file or directory path> ...]
 
 The "chmod" command alters permissions and the -R switch affects all users. Then it is simply giving the correct permissions to use.
 	$ sudo chmod -R 757 <file or directory path>
@@ -265,15 +265,22 @@ Change permission of file or directory
 		$ chmod g+wx,o-w test1.txt
 
 	Change directory(and all child directories) permission
-		$ find </path/to/your/directory> -type d -exec chmod 755 {} \;
+		$ find [</path/to/your/directory> </path/to/another/directory> ...] -type d -exec chmod 755 {} \;
+		For current directory
+		$ find . -type d -exec chmod 755 {} \;
 	Change all child directories' files permission
-		$ find </path/to/your/directory> -type f -exec chmod 644 {} \;
+		$ find [</path/to/your/directory> </path/to/another/directory> ...] -type f -exec chmod 644 {} \;
+		For files inside current directory
+		$ find . -type f -exec chmod 644 {} \;
 
 Change owner of file or directory
 	$ chown
 
 Change group ownership of file or directory
 	$ chgrp
+	$ sudo chgrp -R <group name> [</path/to/your/directory> </path/to/another/directory> ...]
+	Examples:
+		$ sudo chgrp -R www-data storage bootstrap/cache
 
 
 
