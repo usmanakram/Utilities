@@ -14,41 +14,41 @@ Play with Docker:
 https://labs.play-with-docker.com/
 
 To Install DOCKER
-	sudo yum -y update
-	sudo yum install -y docker
+	$ sudo yum -y update
+	$ sudo yum install -y docker
 
 To check version
-	docker --version
+	$ docker --version
 
 To start DOCKER
-	sudo service docker start
+	$ sudo service docker start
 
 To add new user
-	sudo usermod -a -G docker "your new user"
+	$ sudo usermod -a -G docker "your new user"
 
 To get docker info
-	docker info
+	$ docker info
 
 To view images
-	docker images
+	$ docker images
 
 To view running containers
-	docker ps
+	$ docker ps
 
 To view all containers
-	docker ps -a
+	$ docker ps -a
 
 To pull image from repository
-	docker pull "image name"
+	$ docker pull "image name"
 
 To run (auto pull before run, if do not exist locally) an image
-	docker run "image name"
+	$ docker run "image name"
 
 To stop DOCKER
-	sudo service docker stop
+	$ sudo service docker stop
 
 To uninstall DOCKER
-	sudo yum remove docker
+	$ sudo yum remove docker
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -60,78 +60,78 @@ https://www.youtube.com/watch?v=HqBMEmoAd1M
 
 
 To reduce the length of terminal string
-	export PS1="\u$ "
+	$ export PS1="\u$ "
 
 =====
 Basic
 =====
 To get the info of docker Server & Client
-	docker version
+	$ docker version
 
 To view docker version (brief info)
-	docker -v
+	$ docker -v
 	OR
-	docker --version
+	$ docker --version
 
 To view docker version (detailed info)
-	docker info
+	$ docker info
 
 To get help
-	docker --help
+	$ docker --help
 
 To login hub.docker.com
-	docker login
+	$ docker login
 
 ======
 Images
 ======
 To view list of all pulled images
-	docker images
+	$ docker images
 
 To view only ID's of pulled(available locally) images
-	docker images -q
+	$ docker images -q
 
 To pull image from repository (hub.docker.com)
-	docker pull "image name"
+	$ docker pull "image name"
 
 To remove image
-	docker rmi "image name"
+	$ docker rmi "image name"
 
 To remove image (forcefully)
-	docker rmi -f "image name"
+	$ docker rmi -f "image name"
 
 ==========
 Containers
 ==========
 To view list of containers
-	docker ps
+	$ docker ps
 
 To view list of (all) containers
-	docker ps -a
+	$ docker ps -a
 
 To run (auto pull before run, if do not exist locally) a container
-	docker run "image name"
+	$ docker run "image name"
 
 To run image in interactive mode
-	docker run -it "image name"
+	$ docker run -it "image name"
 
 To start container
-	docker start "container id/name"
+	$ docker start "container id/name"
 
 To stop container
-	docker stop "container id/name"
+	$ docker stop "container id/name"
 
 ======
 System
 ======
 To view the detail of running containers
-	docker stats
+	$ docker stats
 
 To view disc usage of docker 
-	docker system df
+	$ docker system df
 
 To remove unused data
-	docker system prune
+	$ docker system prune
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -149,22 +149,22 @@ Q. Where are images stored?
 A. Registries (e.g. docker hub)
 
 To pull image from repository (hub.docker.com)
-	docker pull "image name":"image tag"
+	$ docker pull "image name":"image tag"
 
 To view images (have not associated with containers)
-	docker images -f "dangling=false"
+	$ docker images -f "dangling=false"
 
 To view IDs of images (have not associated with containers)
-	docker images -f "dangling=false" -q
+	$ docker images -f "dangling=false" -q
 
 To create a named container with interactive mode
-	docker run --name MyUbuntu1 -it ubuntu bash
+	$ docker run --name MyUbuntu1 -it ubuntu bash
 
 To inspect image
-	docker inspect "image name"
+	$ docker inspect "image name"
 
 To view the history of image
-	docker history "image name"
+	$ docker history "image name"
 
 Note:
 	- By run an image means to create a container out of an image.
@@ -187,37 +187,37 @@ Notes:
 COMMANDS
 ========
 To create a named container with interactive mode
-	docker run --name MyUbuntu1 -it ubuntu
+	$ docker run --name MyUbuntu1 -it ubuntu
 
 To start the container
-	docker start ContainerName/ID
+	$ docker start ContainerName/ID
 
 To stop the running container
-	docker stop ContainerName/ID
+	$ docker stop ContainerName/ID
 
 To pause the running container
-	docker pause ContainerName/ID
+	$ docker pause ContainerName/ID
 
 To unpause the container
-	docker unpause ContainerName/ID
+	$ docker unpause ContainerName/ID
 
 To view processes of the container
-	docker top ContainerName/ID
+	$ docker top ContainerName/ID
 
 To view the stats of the running container
-	docker stats ContainerName/ID
+	$ docker stats ContainerName/ID
 
 To attach the container
-	docker attach ContainerName/ID
+	$ docker attach ContainerName/ID
 
 To kill or remove the running container
-	docker kill ContainerName/ID
+	$ docker kill ContainerName/ID
 
 To remove container
-	docker rm ContainerName/ID
+	$ docker rm ContainerName/ID
 
 To view the history of the image
-	docker history ImageName/ID
+	$ docker history ImageName/ID
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -261,15 +261,15 @@ END Dockerfile content
 STEP 3 : BUILD Dockerfile TO CREATE IMAGE
 
 To build the image
-	docker build .
+	$ docker build .
 
 Complete command:
-	docker build -t ImageName:Tag directoryOfDocekrfile (put dot ".", if Dockerfile is in current directory)
+	$ docker build -t ImageName:Tag directoryOfDocekrfile (put dot ".", if Dockerfile is in current directory)
 
 STEP 4 : RUN IMAGE TO CREATE CONTAINER
 
 To create container
-	docker run image "image ID"
+	$ docker run image "image ID"
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -283,25 +283,25 @@ https://www.youtube.com/watch?v=HUpIoF_conA
 Docker compose
 : tool for defining & running multi-container docker applications
 : use yaml files to configure application services (docker-compose.yml)
-: can start all services with a single command : docker compose up
-: can stop all services with a single command : docker compose down
+: can start all services with a single command : docker-compose up
+: can stop all services with a single command : docker-compose down
 : can scale up selected services when required
 
 
 Step 1 : install docker compose
    (already installed on windows and mac with docker)
-   docker-compose -v
+   $ docker-compose -v
    OR
-   docker-compose --version
+   $ docker-compose --version
 
-   docker-compose version
+   $ docker-compose version
    
    2 Ways to install at linux
 
    1.  https://github.com/docker/compose/releases
 
    2. Using PIP
-    pip install -U docker-compose
+    $ pip install -U docker-compose
 
 Step 2 : Create docker compose file at any location on your system
    docker-compose.yml
@@ -325,19 +325,19 @@ END docker-compose.yml content
 ==============================
 
 Step 3 : Check the validity of file by command
-    docker-compose config
+    $ docker-compose config
 
 Step 4 : Run docker-compose.yml file by command
-   docker-compose up -d
+   $ docker-compose up -d
 
 Steps 5 : Bring down application by command
-   docker-compose down
+   $ docker-compose down
 
 TIPS
 How to scale services
 
 —-scale
-docker-compose up -d --scale database=4
+$ docker-compose up -d --scale database=4
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -369,13 +369,13 @@ On deleting container volume does not delete
 
 
 Commands
-docker run --name MyJenkins1 -v myvol1:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins
-docker run --name MyJenkins2 -v myvol1:/var/jenkins_home -p 9090:8080 -p 60000:50000 jenkins
-docker run --name MyJenkins3 -v /Users/raghav/Desktop/Jenkins_Home:/var/jenkins_home -p 9191:8080 -p 40000:50000 jenkins
+$ docker run --name MyJenkins1 -v myvol1:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins
+$ docker run --name MyJenkins2 -v myvol1:/var/jenkins_home -p 9090:8080 -p 60000:50000 jenkins
+$ docker run --name MyJenkins3 -v /Users/raghav/Desktop/Jenkins_Home:/var/jenkins_home -p 9191:8080 -p 40000:50000 jenkins
 
 Testing:
-docker run --name MyJenkins1 -v /Users/usmanakram/Desktop/docker/tutorial13/Jenkins_Home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins
-docker run --name MyJenkins2 -v /Users/usmanakram/Desktop/docker/tutorial13/Jenkins_Home:/var/jenkins_home -p 9090:8080 -p 60000:50000 jenkins
+$ docker run --name MyJenkins1 -v /Users/usmanakram/Desktop/docker/tutorial13/Jenkins_Home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins
+$ docker run --name MyJenkins2 -v /Users/usmanakram/Desktop/docker/tutorial13/Jenkins_Home:/var/jenkins_home -p 9090:8080 -p 60000:50000 jenkins
 
 
 
@@ -473,48 +473,48 @@ To check whether docker machine installed
 
 Step 1 :  Create Docker machines (to act as nodes for Docker Swarm)   Create one machine as manager and others as workers
     FOR WINDOWS
-      docker-machine create --driver hyperv manager1
+      $ docker-machine create --driver hyperv manager1
     FOR MAC
-      docker-machine create --driver virtualbox manager1
+      $ docker-machine create --driver virtualbox manager1
 
    docker-machine:Error with pre-create check: “exit status 126”
    https://stackoverflow.com/questions/38696164/docker-machineerror-with-pre-create-check-exit-status-126
-      brew cask install virtualbox;
+      $ brew cask install virtualbox;
 
    Create one manager machine
    and other worker machines
 
 
 Step 2 :  Check machine created successfully
-    docker-machine ls
-    docker-machine ip manager1
+    $ docker-machine ls
+    $ docker-machine ip manager1
 
     Let's create some other machines
-    docker-machine create --driver virtualbox worker1
-    docker-machine create --driver virtualbox worker2
+    $ docker-machine create --driver virtualbox worker1
+    $ docker-machine create --driver virtualbox worker2
 
 
 Step 3 :  SSH (connect) to docker machines with three different tabs
-    docker-machine ssh manager1
-    docker-machine ssh worker1
-    docker-machine ssh worker2
+    $ docker-machine ssh manager1
+    $ docker-machine ssh worker1
+    $ docker-machine ssh worker2
 
 
 Step 4 :  Initialize Docker Swarm
 	Run following command on machine which you want to make manager.
-    docker swarm init --advertise-addr MANAGER_IP
-    docker node ls
+    $ docker swarm init --advertise-addr MANAGER_IP
+    $ docker node ls
     (this command will work only in swarm manager and not in worker)
 
 
 Step 5 :  Join workers in the swarm
     Get command for joining as worker
     In manager node run command
-      docker swarm join-token worker
-    This will give command to join swarm as worker
+    	$ docker swarm join-token worker
+    	This will give command to join swarm as worker
 
-      docker swarm join-token manager
-    This will give command to join swarm as manager
+    	$ docker swarm join-token manager
+    	This will give command to join swarm as manager
 
     SSH into worker node (machine) and run command to join swarm as worker
    
@@ -524,20 +524,22 @@ Step 5 :  Join workers in the swarm
 
 
 Step 6 :  On manager run standard docker commands
-    docker info
+    $ docker info
     check the swarm section 
     no of manager, nodes etc
 
     Now check docker swarm command options 
-    docker swarm 
+    $ docker swarm 
 
 
 Step 7 :  Run containers on Docker Swarm
-    docker service create --replicas 3 -p 80:80 --name serviceName nginx
+    $ docker service create --replicas 3 -p 80:80 --name <ServiceName> <image>
+    Example
+    $ docker service create --replicas 3 -p 80:80 --name web1 nginx
 
     Check the status:
-    docker service ls
-    docker service ps serviceName
+    $ docker service ls
+    $ docker service ps <ServiceName>
    
     Check the service running on all nodes
     Check on the browser by giving ip for all nodes
@@ -545,26 +547,27 @@ Step 7 :  Run containers on Docker Swarm
 
 Step 8 :  Scale service up and down
    On manager node 
-   docker service scale serviceName=2
+   $ docker service scale <ServiceName>=2
  
 
 Inspecting Nodes (this command can run only on manager node)
-docker node inspect nodename
-docker node inspect self
-docker node inspect worker1
+$ docker node inspect nodename
+$ docker node inspect self
+$ docker node inspect worker1
 
 
 Step 9 : Shutdown node
-   docker node update --availability drain worker1
+   $ docker node update --availability drain worker1
 
 
 Step 10 :  Update service
-   docker service update --image imagename:version web
-   docker service update --image nginx:1.14.0 serviceName
+   $ docker service update --image <imagename>:<version> <ServiceName>
+   Example
+   $ docker service update --image nginx:1.14.0 web1
 
 
 Step 11 :  Remove service
-   docker service rm serviceName
+   $ docker service rm <ServiceName>
 
 
 To leave the swarm, run on leaving node
