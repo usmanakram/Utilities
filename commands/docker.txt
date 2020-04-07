@@ -273,8 +273,34 @@ https://rominirani.com/docker-swarm-tutorial-b67470cf8872
 
 
 
+============================================
+Start: Temporary Notes, till end of document
+============================================
+
+=====================================================
+Copy files from local system to inside docker machine
+=====================================================
+You can use pscp on the command line directly. First find out the IP address of the VM:
+
+docker-machine env <VM_name>
+VM name in your case is ‘manager’. Take the ip address (without port) out of the $Env:DOCKER_HOST variable. Eg:
+
+$Env:DOCKER_HOST = "tcp://192.168.XXX.XXX:2376"
+Then use pscp to send the file:
+
+pscp <file_to_send> docker@<ip_address_of_VM>:/home/docker/foo.txt
+You will be prompted for the password of the ‘docker’ user. I found that docker uses a default password ‘tcuser’ which worked when I did it.
 
 
 
 
+Mount directories from a machine to your local host
+	Link: https://docs.docker.com/machine/reference/mount/
 
+
+Google search: you must have a copy of the sshfs binary locally to use the mount feature
+
+Google search: docker deploy is only supported on a docker daemon with experimental features enabled
+
+.dab files / --bundle-file is still experimental only; --compose-file files are available in stable. 
+You can enable experimental features through the --experimental flag on dockerd or through daemon.json configuration file.
