@@ -224,6 +224,9 @@ Type any one of the following command to find os name and version in Linux:
 To find Linux kernel version:
 	$ uname -r
 
+To find total amount of free and used physical and swap memory, as well as the buffers used by the kernel
+	$ free -m
+
 =======================
 User, Group permissions
 =======================
@@ -475,6 +478,10 @@ Reference Links:
 	https://www.digitalocean.com/community/tutorials/how-to-install-laravel-with-an-nginx-web-server-on-ubuntu-14-04#create-swap-file-(optional)
 
 	https://stackoverflow.com/questions/18116261/php-composer-update-cannot-allocate-memory-error-using-laravel-4
+
+Other Links:
+	https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+	https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04
 
 
 
