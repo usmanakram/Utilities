@@ -224,8 +224,20 @@ Type any one of the following command to find os name and version in Linux:
 To find Linux kernel version:
 	$ uname -r
 
-To find total amount of free and used physical and swap memory, as well as the buffers used by the kernel
+To see total amount of free and used physical and swap memory, as well as the buffers used by the kernel in KBs.
+	$ free
+	For MBs
 	$ free -m
+	For GBs
+	$ free -g
+	To see more information
+	$ free -h
+
+To find out list of open ports
+	$ netstat -tpunl
+	For specific port (like 6001)
+	$ netstat -tpunl | grep 6001
+
 
 =======================
 User, Group permissions
