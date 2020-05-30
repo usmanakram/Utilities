@@ -126,6 +126,15 @@ To view processes of the container
 To view the stats of the running container
 	$ docker stats ContainerName/ID
 
+To view all the logs of container
+	$ docker logs ContainerName/ID
+	
+	For following output or tailing continuously
+	$ docker logs --follow ContainerName/ID
+	
+	For last n lines of logs
+	$ docker logs --tail 1000 ContainerName/ID
+
 To copy file from local system to inside docker container
 	$ docker cp <source file> <container name or id>:<destination path with file name>
 
