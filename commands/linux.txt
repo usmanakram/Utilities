@@ -459,8 +459,18 @@ By default, Nginx is configured to start automatically when the server boots. If
 To re-enable the service to start up at boot, you can type:
 	$ sudo systemctl enable nginx
 
+To get full phpinfo()
+	$ php -i
+
 To find "php.ini" file
 	$ php -i | grep 'Configuration File'
+	OR
+	$ php -i | grep 'php.ini'
+	OR
+	$ php -r "phpinfo();" | grep php.ini
+
+To get all php configuration files path
+	$ php --ini
 
 Add extension in file
 	$ echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
