@@ -138,6 +138,13 @@ To view all the logs of container
 To copy file from local system to inside docker container
 	$ docker cp <source file> <container name or id>:<destination path with file name>
 
+To run command inside running container
+	$ docker exec ContainerName/ID <command>
+	To run multiple commands
+	$ docker exec <container name or id> bash -c "command1 ; command2 ; command3"
+	To run command inside a specific directory
+	$ docker exec -w /path/to/directory <container name or id> <command>
+
 ==============
 docker-compose
 ==============
