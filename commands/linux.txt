@@ -476,6 +476,9 @@ To get 'upload' configuration
 	For 'file'
 	$ php -i | grep file
 
+To get the current memory_limit value
+	$ php -r "echo ini_get('memory_limit').PHP_EOL;"
+
 To get all php configuration files path
 	$ php --ini
 

@@ -101,5 +101,9 @@ To install only regular dependencies (DevDependencies will be ignored)
 To display outdated packages
 	$ npm outdated
 
-To upgrade outdated packages
+To upgrade (upto allowed limit specified in package.json) outdated packages
 	$ npm update
+
+To upgrade depencencies to very latest version, we need another package to update our 'package.json'
+	$ npm i -g npm-check-updates
+	It will update only 'package.json', subsequently, we will have to run 'npm update' to upgrade packages

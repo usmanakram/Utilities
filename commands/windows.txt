@@ -1,5 +1,35 @@
+#################### START: Environment Variables in Windows ####################
+
+To display all the environment variables (in NAME=VALUE pairs)
+	set
+
+To display a particular variable (in NAME=VALUE pair)
+	set [variable]
+	Example
+	set USERNAME
+
+	OR, use "echo" command with variable name enclosed within a pair of '%'
+	echo %COMPUTERNAME%
+
+To set an environment variable called MY_VAR
+	set MY_VAR=hello
+   
+To display
+	set MY_VAR
+   
+To unset an environment variable
+	set MY_VAR=
+
 Print system PATH variable
 	echo %PATH%
+   
+To append a directory in front of the existing PATH
+	set PATH=c:\myBin;%PATH%
+
+Reference:
+	https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html#:~:text=2.3%20Using%20an%20Environment%20Variable,%22%20echo%20%25varname%25%20%22.
+
+##################### END: Environment Variables in Windows #####################
 
 Windows IP Configuration
 	ipconfig
