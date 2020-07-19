@@ -498,6 +498,9 @@ Swap File to extend memory
 First, we can create an empty 1GB file by typing:
 	$ sudo fallocate -l 1G /swapfile
 
+Change file permissions
+	$ sudo chmod 0600 /swapfile
+
 We can format it as swap space by typing:
 	$ sudo mkswap /swapfile
 
