@@ -29,3 +29,16 @@ To restore
 	$ mongorestore --port=<27017 is default port> --db <database name> <dumped files directory path>
 	Example:
 	$ mongorestore --db RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
+
+
+
+Create MongoDB Service in Windows. First Open cmd with administrator
+	$ mongod --port 27017 --dbpath "a mongodb storage actual path e.g: d:\mongo_storage\data" --logpath="a log path e.g: d:\mongo_storage\log\log.txt" --install --serviceName "MongoDB"
+
+After that
+Start Service
+	$ net start MongoDB
+	$ net start mongodb
+Stop Service
+	$ net stop MongoDB
+	$ net stop mongodb
