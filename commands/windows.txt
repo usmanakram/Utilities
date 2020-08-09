@@ -13,16 +13,16 @@ To display a particular variable (in NAME=VALUE pair)
 
 To set an environment variable called MY_VAR
 	set MY_VAR=hello
-   
+
 To display
 	set MY_VAR
-   
+
 To unset an environment variable
 	set MY_VAR=
 
 Print system PATH variable
 	echo %PATH%
-   
+
 To append a directory in front of the existing PATH
 	set PATH=c:\myBin;%PATH%
 
@@ -74,5 +74,6 @@ To show network security key among other settings, similar to the previous comma
 To display all wifi profiles ever connected to
 	netsh wlan show profile
 
-To show the password of all networks/profiles
+To save the password of all networks/profiles in its respective files
+	mkdir D:\wifi
 	netsh wlan export profile folder=D:\wifi\ key=clear
