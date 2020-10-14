@@ -30,6 +30,21 @@ Restore
 	gunzip < table_name.sql.gz | mysql -u username -p db_name
 
 
+=============================
+START: Installation on Ubuntu
+=============================
+$ sudo apt-get update
+
+$ sudo apt install mysql-server
+
+$ sudo mysql_secure_installation
+
+Reference Link:
+	https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04
+===========================
+END: Installation on Ubuntu
+===========================
+
 
 ===========================
 START: USER AND PERMISSIONS
