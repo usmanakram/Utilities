@@ -1,0 +1,71 @@
+Edit file
+  $ vim <file name>
+  Press "i" for insert mode
+  Enter anthing you want to put as content
+  Press Esc then ":wq!" for save & exit
+  OR
+  Press Esc then ":q!" to quit withoug saving changes
+
+=====================
+START: Find & Replace
+=====================
+
+To replace first occurrence of word 'foo' with 'bar' on all lines. The % is shorthand for all lines.
+  $ :%s/foo/bar/
+
+To replace all occurrences, use the 'g' option (which indicates all occurrences on a line).
+  $ :%s/foo/bar/g
+
+To make changes on range of lines i.e. replace first occurrence of 'foo' with 'bar' on lines 5 through 20 only
+  $ :5,20s/foo/bar/
+
+To replace first occurrence of 'foo' with 'bar' starting at the current line for the next 100 lines:
+  $ :.,+100s/foo/bar/
+
+
+Search and replace in the current line only
+  $ :s/Find-Word/Replace-Word/gc
+
+Change each 'Unix' to 'Linux' for all lines from line 36 to line 42
+  $ :36,42s/Unix/Linux/g
+
+Find a word called ‘UNIX’ and replace with ‘Linux’, but ask for confirmation first, enter:
+  $ :%s/UNIX/Linux/gc
+
+
+Case Insensitive Find and Replace
+  $ :%s/unix/Linux/gi
+
+Case Insensitive Find and Replace with confirmation
+  $ :%s/unix/Linux/gic
+
+
+Case sensitive Find and Replace
+  $ :%s/UNIX/bar/gI
+
+Case sensitive Find and Replace with confirmation
+  $ :%s/UNIX/bar/gIc
+
+
+
+
+Find ‘UNIX’ and replace with ‘Linux’ in the current line only (note % is removed from substitute command):
+  $ :s/UNIX/Linux/g
+
+NOTE: You need to prefix % the substitute command to make changes on all lines:
+  $ :%s/UNIX/Linux/g
+
+
+Find ‘UNIX’ and replace with ‘Linux’ all lines between line 100 and line 250
+  $ :100,200s/UNIX/Linux/g
+  OR
+  $ :100,200s/UNIX/Linux/gc
+
+
+Reference links:
+  https://www.cyberciti.biz/faq/vi-vim-editor-search-and-replace-howto/
+  https://www.cyberciti.biz/faq/vim-text-editor-find-and-replace-all-text/
+  https://www.cyberciti.biz/faq/linux-unix-vim-find-replace-text-string-words/
+===================
+END: Find & Replace
+===================
