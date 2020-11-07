@@ -59,6 +59,9 @@ To print the log of specified file
 	For Detaild View
 	$ git log --follow -p -- [file path]
 
+To view git tree
+	$ git log --graph --all --oneline --decorate
+
 To view the log of specified file
 	$ gitk [file path]
 
@@ -67,7 +70,7 @@ To view the log of specified file
 For checking difference between two commits
 	$ git diff oldCommit..newCommit
 	Example:
-	$ git diff k73ud..dj374 
+	$ git diff k73ud..dj374
 
 OR (1 space, not more):
 	$ git diff oldCommit newCommit
@@ -147,9 +150,18 @@ To list down all configuration settings with origins where they defined
 To rename file
 	$ git mv [old file path] [new file path]
 
-====
-TAGs
-====
+
+To move HEAD to some previous commit
+	$ git reset --hard [commit hash]
+
+To create an alias of git command
+	$ git config --global alias.[alias name] "[git command]"
+	Example:
+	$ git config --global alias.tree "log --graph --all --oneline --decorate"
+
+===========
+START: TAGs
+===========
 Create tag
 	$ git tag -a v1.0.0 -m "initial release"
 
@@ -165,4 +177,25 @@ Delete remote tag '12345' (eg, GitHub version too)
 Alternative approach
 	$ git push --delete origin tagName
 	$ git tag -d tagName
+=========
+END: TAGs
+=========
 
+
+
+
+==========================
+START: Create Pull Request
+==========================
+
+Step 1: From your project repository, bring in the changes and test.
+
+	$ git fetch origin
+	$ git checkout -b mongo origin/mongo
+	$ git merge master
+
+Step 2: Merge the changes and update on GitHub.
+
+	$ git checkout master
+	$ git merge --no-ff mongo
+	$ git push origin master
