@@ -54,6 +54,7 @@ Remove packages
 
 Find global package root folder
 	$ npm root -g
+	(In case of nvm, however, that location would differ.)
 
 
 Example: "lodash": "^4.17.4"
@@ -84,7 +85,7 @@ You can get the version of a specific package by specifying the name:
 To view package detail
 	$ npm view [package name]
 
-If you want to see any specific property of project.json, run 
+If you want to see any specific property of project.json, run
 	$ npm view [package name] [property name]
 	i.e.
 	$ npm view [package name] dependencies
