@@ -25,10 +25,6 @@ To import from complete folder
 	$ cd <json files directory path>
 	$ ls -1 *.json | while read jsonfile; do mongoimport -d <database name> --file $jsonfile --type json; done
 
-To restore
-	$ mongorestore --port=<27017 is default port> --db <database name> <dumped files directory path>
-	Example:
-	$ mongorestore --db RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
 
 
 
@@ -42,3 +38,66 @@ Start Service
 Stop Service
 	$ net stop MongoDB
 	$ net stop mongodb
+
+
+
+
+
+
+To export
+	$ mongoexport --db=ludoapp --collection=dices --out=dices.json
+
+=============================
+START: MongoDB Database Tools
+=============================
+To create dump
+	$ mongodump --db=<database-name> --collection=<collection-name>
+	Options:
+	(Options can be use as --db=<database-name> OR --db <database-name> OR /db:<database-name>)
+		/host:<hostname>
+		/port:<port>
+		--uri <mongodb-uri-connection-string>
+		--username <username>
+		--password <password>
+		--db=<database-name>
+		--collection=<collection-name>
+		--out:<directory-path>
+		--archive=<file-path>
+		--excludeCollection=<collection-name>
+		--excludeCollectionsWithPrefix=<collection-prefix>
+
+	Example:
+	$ mongodump --db=ludoapp
+
+To restore
+	$ mongorestore --port=<27017 is default port> --db=<database name> <dumped files directory path>
+	Options:
+		--port=<27017 is default port>
+		--db=<database name>
+
+	Example:
+	$ mongorestore --db=RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
+
+
+
+
+Quick overview of the status of a currently running mongod or mongos instance.
+	$ mongostat
+
+To track the amount of time a MongoDB instance mongod spends reading and writing data
+	$ mongotop
+
+Reference:
+	https://docs.mongodb.com/database-tools/
+===========================
+END: MongoDB Database Tools
+===========================
+
+
+/d/localhost/htdocs/projects/LudoApp/Docs/mongodb-database-tools/bin/mongodump --db=ludoapp --excludeCollectionsWithPrefix=user
+/d/localhost/htdocs/projects/LudoApp/Docs/mongodb-database-tools/bin/mongodump /db:ludoapp /excludeCollectionsWithPrefix:user
+
+
+
+
+mongorestore --db=ludoapptwo dump/ludoapp/
