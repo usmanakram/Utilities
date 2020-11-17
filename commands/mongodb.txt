@@ -1,3 +1,23 @@
+====================
+START: MongoDB linux
+====================
+To install
+	$ sudo apt-get install mongodb
+
+To check status
+	$ sudo service mongodb status
+
+To start
+	$ sudo service mongodb start
+
+To stop
+	$ sudo service mongodb stop
+
+==================
+ENd: MongoDB linux
+==================
+
+
 mongorestore -d db_name dump_folder_path
 
 List databases
@@ -38,8 +58,6 @@ Start Service
 Stop Service
 	$ net stop MongoDB
 	$ net stop mongodb
-
-
 
 
 

@@ -77,3 +77,34 @@ To display all wifi profiles ever connected to
 To save the password of all networks/profiles in its respective files
 	mkdir D:\wifi
 	netsh wlan export profile folder=D:\wifi\ key=clear
+
+
+
+#################### START: WSL ####################
+Windows Subsystem for Linux Installation Guide for Windows 10
+URL:
+	https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+
+To check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in Windows Build 18362 or higher):
+	$ wsl -l -v
+	OR
+	$ wsl --list --verbose
+
+To set a distribution to be backed by either version of WSL please run:
+	$ wsl --set-version <distribution name> <versionNumber>
+
+To set WSL 2 as your default version
+Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution:
+	$ wsl --set-default-version 2
+
+
+
+
+You can also use windows commands inside WSL's Linux Terminal.
+Try opening a Linux distribution (ie Ubuntu), be sure that you are in the Linux home directory by entering this command: cd ~.
+Then open your Linux file system in File Explorer by entering (don't forget the period at the end):
+	$ powershell.exe /c start .
+
+
+##################### END: WSL #####################
