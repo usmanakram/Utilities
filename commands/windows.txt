@@ -107,4 +107,49 @@ Then open your Linux file system in File Explorer by entering (don't forget the 
 	$ powershell.exe /c start .
 
 
+
+
+
+// START
+A quick cheeky helper, that you might want to add to your powershell profile, in case you occasionally use you wsl distro's curl to test things listening on localhost
+
+function Get-WSL2WindowsHost {
+  return wsl cat /etc/resolv.conf `| grep nameserver `| cut -d ' ' -f 2
+}
+
+You can then do:
+
+# imagine you have something listening on port 3000
+	$ wsl curl http://$(Get-WSL2WindowsHost):3000
+
+Reference links:
+	https://github.com/Microsoft/WSL/issues/1032
+// END
+
+
+START
+Linux IP
+	$ ip add | grep inet
+
+Reference links:
+	https://github.com/microsoft/WSL/issues/4392
+// END
+
+
+// START
+#!/bin/bash
+
+NEWIP=`ifconfig | grep eth0 -A1 | tail -n1 | cut -d ' '  -f10 `
+
+# delete IP from windows hosts file
+sed '/wsl/d' -i '/mnt/c/Windows/System32/drivers/etc/hosts' || true
+
+echo "$NEWIP		wsl" >> '/mnt/c/Windows/System32/drivers/etc/hosts'
+
+Thats the script. Make sure your user has the permission to modify / create files in the "/Windows/System32/drivers/etc/" folder because sed will create a temp file in this directory. Run this script everytime you start wsl and you'll be fine.
+
+
+Reference links:
+	https://github.com/microsoft/WSL/issues/5298
+// END
 ##################### END: WSL #####################
