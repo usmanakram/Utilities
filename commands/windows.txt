@@ -129,7 +129,7 @@ Reference links:
 
 START
 Linux IP
-	$ ip add | grep inet
+	$ ip addr | grep inet
 
 Reference links:
 	https://github.com/microsoft/WSL/issues/4392
