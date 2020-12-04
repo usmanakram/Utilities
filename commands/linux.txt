@@ -64,13 +64,13 @@ Copy file
 
 	For interactive mode. CLI ask befor overwriting file
 	$ cp -i <1st file path> <2nd file path>
-	
+
 	Does not overwrite the file
 	$ cp -n <1st file path> <2nd file path>
-	
+
 	Update destination file only when source file is different (different content) from destination file
 	$ cp -u <1st file path> <2nd file path>
-	
+
 	Print info at screen while copying
 	$ cp -v <1st file path> <2nd file path>
 
@@ -99,8 +99,13 @@ View content of multiple files
 
 Create new file and put some text
 	$ cat > <file path>
-	Type some content 
+	Type some content
 	Press ctrl + d for save & exit
+
+Delete file content
+	$ echo "" > <file path>
+	OR
+	$ echo > <file path>
 
 Copy content of 1st file and append into 2nd file
 	$ cat file1.txt >> file2.txt
@@ -314,7 +319,7 @@ To allow executable permissions
 To take out write and executable permissions
 	$ chmod -wx filename
 
-Note that "r" is for read, "w" is for write, and "x" is for execute. 
+Note that "r" is for read, "w" is for write, and "x" is for execute.
 This only changes the permissions for the owner of the file.
 
 
