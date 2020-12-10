@@ -13,8 +13,10 @@ To start
 To stop
 	$ sudo service mongodb stop
 
+Reference:
+	https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database
 ==================
-ENd: MongoDB linux
+END: MongoDB linux
 ==================
 
 
