@@ -152,5 +152,22 @@ Thats the script. Make sure your user has the permission to modify / create file
 Reference links:
 	https://github.com/microsoft/WSL/issues/5298
 // END
+
+=========================================
+START: Map external port to internal host
+=========================================
+Open Windows PowerShell
+  $ netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=172.18.72.163
+
+To display all mapped ports
+	$ netsh interface portproxy show all
+
+Firewall Rules:
+ - Go to control panel and open advanced firewall rules
+ - Allow your desired port through firewall
+
+=======================================
+END: Map external port to internal host
+=======================================
 ##################### END: WSL #####################
 
