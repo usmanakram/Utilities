@@ -154,6 +154,10 @@ To rename file
 To move HEAD to some previous commit
 	$ git reset --hard [commit hash]
 
+To remove last commit
+	$ git reset --soft HEAD~1
+	Note the --soft flag: this makes sure that the changes in undone revisions are preserved. After running the command, you'll find the changes as uncommitted local modifications in your working copy.
+
 To create an alias of git command
 	$ git config --global alias.[alias name] "[git command]"
 	Example:
@@ -199,3 +203,34 @@ Step 2: Merge the changes and update on GitHub.
 	$ git checkout master
 	$ git merge --no-ff mongo
 	$ git push origin master
+
+
+
+
+
+
+######################################################################################
+Reference:
+	https://stackoverflow.com/questions/2529971/what-is-the-head-in-git/46350644#46350644
+
+$ git checkout HEAD~1
+will actually GO/checkout to 1 commit/reference before
+
+$ git reset HEAD~3
+will uncommit your last 3 commits — without removing the changes, ie you can see all the changes made in the last 3 commits together, remove anything you don't like or add onto it and then commit them all again.
+
+$ git reset --hard HEAD~3
+will uncommit your last commit and remove their changes. It will completely remove those changes. For more see here.
+
+$ git diff HEAD~3
+to look into the changes of the last 3 commits
+
+$ git revert --no-commit HEAD~3..HEAD
+Make a new commit by reverting last 3 commits
+
+
+To be studied:
+	https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git
+	https://stackoverflow.com/questions/1463340/how-to-revert-multiple-git-commits
+	https://opensource.com/article/18/6/git-reset-revert-rebase-commands
+######################################################################################
