@@ -32,6 +32,7 @@ Branching & Merging
 $ git branch											"List branches (the asterisk denotes the current branch)"
 $ git branch -a										"List all branches (local and remote)"
 $ git branch [branch name]							"Create a new branch"
+$ git branch [branch name] [commit id]	"Create a new branch from specific commit"
 $ git branch -d [branch name]							"Delete a branch"
 $ git push origin --delete [branchName]				"Delete a remote branch"
 $ git checkout -b [branch name]						"Create a new branch and switch to it"
