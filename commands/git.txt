@@ -163,6 +163,28 @@ To create an alias of git command
 	Example:
 	$ git config --global alias.tree "log --graph --all --oneline --decorate"
 
+
+
+============
+START: Stash
+============
+The git stash command takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy.
+	$ git stash
+
+Re-applying stashed changes
+	$ git stash pop
+
+Alternatively, reapply the changes to working copy and keep them in stash with
+	$ git stash apply
+
+
+Reference:
+	https://www.atlassian.com/git/tutorials/saving-changes/git-stash#:~:text=The%20git%20stash%20command%20takes,On%20branch%20master
+==========
+END: Stash
+==========
+
+
 ===========
 START: TAGs
 ===========
