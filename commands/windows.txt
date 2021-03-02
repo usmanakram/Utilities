@@ -169,5 +169,36 @@ Firewall Rules:
 =======================================
 END: Map external port to internal host
 =======================================
+
+===========================
+START: Import/Export Distor
+===========================
+cd C:\Users\MattSlay
+wsl --export Ubuntu ubuntu.tar
+wsl --import UbuntuRuby .\UbuntuRuby ubuntu.tar
+wsl --import UbuntuRuby .\UbuntuRuby ubuntu.tar --version 2
+wsl --import UbuntuPython .\UbuntuPython ubuntu.tar
+wsl --import UbuntuDotNet .\UbuntuDotNet ubuntu.tar
+wsl -d UbuntuRuby
+
+Reference:
+	https://stackoverflow.com/questions/51584765/how-do-you-install-multiple-separate-instances-of-ubuntu-in-wsl
+
+
+To launches the distro
+	$ wsl -d <Distro>
+
+Export
+	$ wsl --export <Distro> <FileName>
+	Example
+	$ wsl --export Ubuntu C:\Users\Usman\Downloads\user_defined_wsl\ubuntu.tar
+
+Import
+	$ wsl --import <Distro> <InstallLocation> <FileName> [Options]
+	Example
+	$ wsl --import UbuntuDup .\UbuntuDup C:\Users\Usman\Downloads\user_defined_wsl\ubuntu.tar
+=========================
+END: Import/Export Distor
+=========================
 ##################### END: WSL #####################
 
