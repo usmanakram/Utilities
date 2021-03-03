@@ -240,9 +240,18 @@ To see total amount of free and used physical and swap memory, as well as the bu
 
 To find out list of open ports
 	$ netstat -tpunl
+	OR
+	$ ss -tpunl
 	For specific port (like 6001)
 	$ netstat -tpunl | grep 6001
 
+To kill a process
+	$ kill <process ID>
+
+To shut down an unresponsive service
+	$ kill -9 <process ID>
+	OR
+	$ kill -SIGKILL <process ID>
 
 =======================
 User, Group permissions
@@ -377,6 +386,31 @@ To install available updates
 To upgrade the software
 	$ sudo apt upgrade
 
+
+
+============
+START: Clean
+============
+/var/lib/mongodb
+/var/log/mongodb
+
+$ sudo service --status-all
+
+List down all packages
+	$ dpkg -l
+
+$ cat /var/lib/dpkg/status | grep mongodb
+
+$ sudo apt-key list
+
+$ ls /etc/apt/sources.list.d/ -lah
+
+$ ls /tmp/ -lah
+
+$ cat /etc/passwd
+==========
+END: Clean
+==========
 
 
 ====

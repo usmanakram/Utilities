@@ -19,6 +19,129 @@ Reference:
 END: MongoDB linux
 ==================
 
+To check status
+	$ sudo service --status-all
+
+=======================
+START: File Permissions
+=======================
+/var/lib/mongodb
+/var/log/mongodb
+
+chown -R mongodb:mongodb /var/lib/mongodb
+chown mongodb:mongodb /tmp/mongodb-27017.sock
+
+sudo service mongod restart
+=====================
+END: File Permissions
+=====================
+
+==================================================
+START: Implementing Replica Set (on single server)
+==================================================
+Primary Node:
+	Port: 2717
+	DB Path: ./mongo/db1
+	CMD: mongod --port 2717 --dbpath /mongo/db1 --replSet myReplicaSet
+
+Secondary Node:
+	Port: 2727
+	DB Path: ./mongo/db2
+	CMD: mongod --port 2727 --dbpath /mongo/db2 --replSet myReplicaSet
+
+Secondary Node:
+	Port: 2737
+	DB Path: ./mongo/db3
+	CMD: mongod --port 2737 --dbpath /mongo/db3 --replSet myReplicaSet
+
+
+Some useful commands we are going to use:
+On Primary Node
+	$ rs.status()
+		Tells the status of replica set
+
+	$ rs.initiate()
+		Initiates a replica set on primary node
+
+	$ rs.add("localhost:2727")
+		Adds a member to replica set
+
+	$ rs.remove("localhost:2727")
+		Removes a member from replica set
+
+
+To connect mongodb we use
+	typically
+		mongodb://localhost:27017
+
+	For, Replica sets
+		mongodb://localhost:2717,localhost:2727,localhost:2737/?replicaSet=rsName
+
+
+Let's start some action
+-----------------------
+Go to terminal and create 3 directories for replica set.
+	$ mkdir -p mongo/db1 mongo/db2 mongo/db3
+
+Start first mongodb instance
+	$ mongod --port 2717 --dbpath ./mongo/db1 --replSet myReplicaSet
+
+Similarly, open terminal tabs and start 2 more instances
+	$ mongod --port 2727 --dbpath ./mongo/db2 --replSet myReplicaSet
+	$ mongod --port 2737 --dbpath ./mongo/db3 --replSet myReplicaSet
+
+
+Now, we have 3 instances of mongodb but, they are not part of replica set yet.
+Let's join them in replica set.
+
+Create new terminal tab and connect one mongodb instance
+	$ mongo --port 2717
+
+Check instance status
+	$ rs.status()
+
+Status will show "no replica set has been received".
+For configuration, we can provide either a configuration file or simply provice parameters in command-line.
+
+Let's initialise replica set.
+	$ rs.initiate()
+
+If we check the status again, we can see lot of details
+	$ rs.status()
+
+Let's add other instances as a member of replica set.
+	$ rs.add("localhost:2727")
+
+Similarly, add third instance
+	$ rs.add("localhost:2737")
+
+
+Let's add some data in primary node.
+	$ show dbs
+	$ use testingdb
+	$ db.users.insert({ "name": "Usman Akram" })
+
+Let's connect to secondary instance and find out whether it has same data available.
+	$ mongo --port 2727
+	$ show dbs
+
+It will show error, because by default, we can read data only by primary node.
+To read form secondary node, run following command
+	$ rs.slaveOk()
+	WARNING: slaveOk() is deprecated and may be removed in the next major release. Please use secondaryOk() instead.
+
+
+To connect MongoDB Compus with replica set, use following uri
+	mongodb://localhost:2717,localhost:2727,localhost:2737?repliaSet=myReplicaSet
+
+
+Reference:
+	https://www.youtube.com/watch?v=gChzfhVGqp8
+
+================================================
+END: Implementing Replica Set (on single server)
+================================================
+
 
 mongorestore -d db_name dump_folder_path
 
@@ -97,6 +220,7 @@ To restore
 
 	Example:
 	$ mongorestore --db=RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
+	$ mongorestore --db=ludoapptmp ./dump/ludoapp
 
 
 
@@ -120,4 +244,3 @@ END: MongoDB Database Tools
 
 
 
-mongorestore --db=ludoapptwo dump/ludoapp/
