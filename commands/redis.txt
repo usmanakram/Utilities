@@ -135,16 +135,106 @@ Sets prevent duplication, it means that all values in a set will be unique.
 
 To create set
   $ sadd [key] [value]
+  $ sadd [key] [value] [value] ...
 
 To get all members of set
   $ smembers [key]
-  $ smembers [key] [key] [key] ...
 
+If you add a value that already exist, it will retrun 0
 
+To count members of set
+  $ scard [set]
+
+To check if a value exist
+  $ sismember [set] [value]
+
+To find difference between two Sets
+  $ sdiff [set one] [set two]
+
+To sotre difference in another set
+  $ sdiffstore [destination set] [set to compare] [set to compare]
+
+To find common elements inside Sets
+  $ sinter [set one] [set two]
+
+To store common elements in another Set
+  $ sinterstore [destination set] [1st set to compare] [2nd set to compare]
+
+To union
+  $ sunion [set one] [set two] [set three] ...
+
+To store union result in another set
+  $ sunionsotre [destination set] [set one] [set two] [set three] ...
 
 ===============
 END: Redis Sets
 ===============
+
+========================
+START: Redis Sorted Sets
+========================
+To create sorted set
+  $ zadd users 1 Usman
+  $ zadd users 2 Zeeshan 3 Ali
+
+To get sorted set
+  $ zrange [key] [start] [end]
+  $ zrange users 0 -1
+
+To get with scores
+  $ zrange users 0 -1 withscores
+
+To get in reverse order
+  $ zrevrange [key] [start] [stop]
+  $ zrevrange users 0 -1
+
+To get in reverse order by score
+  $ zrevrangebyscore [key] [max] [min]
+  $ zrevrangebyscore users 5 0 withscores
+
+To
+  $ zcard users
+
+To
+  $ zcount users -iinf +inf
+
+To
+  $ zcount users 0 4
+
+To remove elements
+  $ zrem [key] [value]
+  $ zrem users Usman
+
+To get score of any member inside sorted set
+  $ zscore [key] [value]
+  $ zscore users Usman
+
+To increment score
+  $ zincrby [key] [increment] [member]
+  $ zincrby users 2 Usman
+
+To remove value based on scores
+  $ zremrangebyscore [key] [min] [max]
+
+To remove based on rank
+  $ zremrangebyrnak [key] [start] [stop]
+  $ zremrangebyrnak users 0 2
+
+======================
+END: Redis Sorted Sets
+======================
+
+========================
+START: Redis HyperLogLog
+========================
+It is a probablistic data structure used to count unique values. These value can be anything.
+For example: IP addresses of visitors of website, search terms, email addresses, unique count of locations, etc
+
+
+======================
+END: Redis HyperLogLog
+======================
+
 
 
 Reference: https://www.youtube.com/watch?v=XCsS_NVAa1g
