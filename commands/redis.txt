@@ -1,0 +1,150 @@
+To start redis server
+  $ redis-server &
+
+To check
+  $ ps -ef | grep redis
+
+To open redis cli
+  $ redis-cli
+
+==============
+START: STRINGS
+==============
+To set string
+  $ set name Usman
+
+To get string
+  $ get name
+
+To get a range of characters from string
+  $ getrange name 0 2
+
+To set multiple string
+  $ mset name Usman email usman.akram99@gmail.com
+
+To get multiple values
+  $ mget name email
+
+To get length of string (it will return 0, if key not present)
+  $ strlen name
+
+============
+END: STRINGS
+============
+
+==============
+START: INTEGER
+==============
+To store integer
+  $ set count 1
+
+To increment/decrment an integer by 1
+  $ incr count
+  $ decr count
+
+To increment/decrement an integer by a number other than 1
+  $ incrby count 3
+  $ decrby count 3
+
+To store float type value
+  $ set pi 3.14
+
+To increment float type value
+  $ incrbyfloat pi 0.001
+
+============
+END: INTEGER
+============
+
+To set expiry of a key
+  $ expire a 10
+
+To check remaining time
+  $ ttl [key]
+
+To set expiration while creating
+  $ setex [key] [time in seconds] [value]
+
+To get all keys
+  $ keys *
+
+To remove all data
+  $ flushall
+
+==================
+START: Redis Lists
+==================
+To add list
+  $ lpush [key] [value]
+  $ lpush country Pakistan
+
+To get list
+  $ lrange [key] [start] [stop]
+  $ lrange country 0 1
+
+To get whole list
+  $ lrange [key] 0 -1
+
+To push data in bottom of the list
+  $ rpush [key] [value]
+
+To get length of list(it will return 0, if key not present)
+  $ llen [key]
+
+To remove data form top of the list
+  $ lpop [key]
+
+To remove data form bottom of the list
+  $ rpop [key]
+
+To change a value inside list
+  $ lset [key] [index] [value]
+
+To inset data before some value inside in list
+  $ linsert [key] before [find value inside list] [value that need to be inserted]
+
+To inset data after some value inside in list
+  $ linsert [key] after [find value inside list] [value that need to be inserted]
+
+To get value at specific index
+  $ lindex [key] [index]
+
+To check if the list exist then only add the value into list otherwise won't add
+  $ lpushx [key] [value]
+  $ rpushx [key] [value]
+
+To sort data alphabatically
+  $ sort [key] [ALPHA]
+  For decending order
+  $ sort [key] desc [ALPHA]
+
+
+
+It will block the execution till it has any value to remove
+[ need to watch again 20:30 ]
+
+
+================
+END: Redis Lists
+================
+
+=================
+START: Redis Sets
+=================
+Sets prevent duplication, it means that all values in a set will be unique.
+
+To create set
+  $ sadd [key] [value]
+
+To get all members of set
+  $ smembers [key]
+  $ smembers [key] [key] [key] ...
+
+
+
+===============
+END: Redis Sets
+===============
+
+
+Reference: https://www.youtube.com/watch?v=XCsS_NVAa1g

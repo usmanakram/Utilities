@@ -1,3 +1,13 @@
+===========
+START: brew
+===========
+To get list of services running in the background.
+  $ brew services list
+
+=========
+END: brew
+=========
+
 To print open ports
 	$ sudo lsof -iTCP -sTCP:LISTEN -n -P
 
