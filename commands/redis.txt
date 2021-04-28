@@ -235,6 +235,93 @@ For example: IP addresses of visitors of website, search terms, email addresses,
 END: Redis HyperLogLog
 ======================
 
+===================
+START: Redis Hashes
+===================
+To create
+  $ hset [hash name] [field] [value]
+  $ hset user name Usman
 
+To get all hash keys
+  $ hkeys [hash name]
+
+To get all hash values
+  $ hvals [hash name]
+
+To get all keys and values inside hash
+  $ hgetall [hash name]
+
+To check, if perticular key exist in hash
+  $ hexists [hash name] [field]
+
+To get the length of hash
+  $ hlen [hash name]
+
+To set multiple values in hash
+  $ hmset [hash name] [key] [value] [key] [value] ...
+
+To get multiple values from hash
+  $ hmget [hash name] [key] [key] ...
+
+To increment key inside hash
+  $ hincrby [hash name] [field] [increment]
+
+To increment floating value
+  $ hincrbyfloat [hash name] [field] [increment]
+
+To remove field from hash
+  $ hdel [hash name] [field] [field] ...
+
+To get length of any field
+  $ hstrlen [hash name] [field]
+
+To set field, if not exist
+  $ hsetnx [hash name] [field] [value]
+
+=================
+END: Redis Hashes
+=================
+
+=========================
+START: Redis Transactions
+=========================
+=======================
+END: Redis Transactions
+=======================
+
+===================
+START: Redis PubSub
+===================
+=================
+END: Redis PubSub
+=================
+
+====================
+START: Redis Scripts
+====================
+==================
+END: Redis Scripts
+==================
+
+===================================
+START: Redis Connections & Security
+===================================
+=================================
+END: Redis Connections & Security
+=================================
+
+=======================
+START: Redis Geospatial
+=======================
+=====================
+END: Redis Geospatial
+=====================
+
+=======================
+START: Redis Benchmarks
+=======================
+=====================
+END: Redis Benchmarks
+=====================
 
 Reference: https://www.youtube.com/watch?v=XCsS_NVAa1g

@@ -101,7 +101,7 @@ Check instance status
 	$ rs.status()
 
 Status will show "no replica set has been received".
-For configuration, we can provide either a configuration file or simply provice parameters in command-line.
+For configuration, we can provide either a configuration file or simply provide parameters in command-line.
 
 Let's initialise replica set.
 	$ rs.initiate()
@@ -244,3 +244,113 @@ END: MongoDB Database Tools
 
 
 
+
+==============
+START: Queries
+==============
+Equality Filter:
+The { item : null } query matches documents that either contain the item field whose value is null or that do not contain the item field.
+	$ db.inventory.find( { item: null } )
+
+Existence Check:
+The following example queries for documents that do not contain a field. [1]
+	$ db.inventory.find( { item : { $exists: false } } )
+
+
+Return the Specified Fields and the _id Field Only:
+A projection can explicitly include several fields by setting the <field> to 1 in the projection document. The following operation returns all documents that match the query. In the result set, only the item, status and, by default, the _id fields return in the matching documents.
+	$ db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
+
+Delete multiple documents:
+	$ db.inventory.deleteMany({})
+
+
+db.users.find({ isBot: true, board: null }).count()
+db.users.find({ isBot: true, board: null, teamId: null, FB: { $ne: null } }).count()
+db.users.find({ isBot: true, board: null, teamId: null, FB: null }).count()
+
+
+
+db.users.find({ isBot: true, board: null, teamId: null, FB: null }).count()
+db.users.deleteMany({ isBot: true, board: null, teamId: null, FB: null })
+db.users.updateOne({"_id" : ObjectId("6010d43765c741de8b008944")}, { $unset: { board: 1 } })
+
+
+db.purchases.aggregate([
+  { $match: { status: null } },
+  { $group: { _id: "$user", count: { $sum: 1 } } },
+  { $sort: { count: -1 } }
+])
+
+
+db.orders.aggregate([
+	{
+		$lookup: {
+			from: "inventory",
+			localField: "item",
+			foreignField: "sku",
+			as: "inventory_docs"
+		}
+	}
+])
+
+db.users.aggregate([
+	{
+		$lookup: {
+			from: 'boards',
+			localField: 'board.id',
+			foreignField: '_id',
+			as: 'board_docs'
+		}
+	},
+	{ $match: { board: { $ne: null } } },
+	{ $limit: 1 }
+])
+
+
+Clear board from user object:
+db.users.find({ board: { $ne: null }, 'board.id': null }).pretty()
+db.users.updateMany({ board: { $ne: null }, 'board.id': null }, { $unset: { board: 1 } })
+
+db.users.aggregate([
+	{
+		$lookup: {
+			from: 'boards',
+			localField: 'board.id',
+			foreignField: '_id',
+			as: 'board_docs'
+		}
+	},
+	{ $match: { board: { $ne: null }, board_docs: [] } },
+	{ $limit: 1 }
+])
+
+db.users.aggregate([
+	{
+		$lookup: {
+			from: 'boards',
+			localField: 'board.id',
+			foreignField: '_id',
+			as: 'board_docs'
+		}
+	},
+	{ $match: { board: { $ne: null }, } },
+	{ $sort: { 'board_docs.createdAt': -1 } }
+]).pretty()
+
+Get count:
+db.users.aggregate([
+	{
+		$lookup: {
+			from: 'boards',
+			localField: 'board.id',
+			foreignField: '_id',
+			as: 'board_docs'
+		}
+	},
+	{ $match: { board: { $ne: null }, } },
+	{ $count: 'userCount' }
+])
+==============
+END: Queries
+==============
