@@ -325,3 +325,53 @@ END: Redis Benchmarks
 =====================
 
 Reference: https://www.youtube.com/watch?v=XCsS_NVAa1g
+
+
+
+
+
+
+To get all commands
+  $ command
+
+Get command detail
+  $ command info [command_name [command_name...]]
+
+Get information and statistics about the server
+  $ info
+
+To check memory problems
+  $ memory doctor
+
+Show allocator internal stats
+  $ memory malloc-stats
+
+Show memory usage detail
+  $ memory stats
+
+Check memory usage of a key
+  $ memory usage [key]
+
+Listen for all requests received by the server in real time
+  $ monitor
+
+Remove expiration from key
+  $ persist [key]
+
+Get the time to live for a key in milliseconds
+  $ pttl [key]
+
+Get the time to live for a key in seconds
+  $ ttl [key]
+
+Get current server time
+  $ time
+
+Determine the type stored at key
+  $ type
+
+Get human readable latency analysis report
+  $ latency doctor
+
+
+Reference: https://redis.io/commands
