@@ -221,6 +221,8 @@ To restore
 	Example:
 	$ mongorestore --db=RealtyReserve "/Volumes/Data/work/projects/nowasys/realityReserve/realityreserve/db_dump/RealtyReserve/"
 	$ mongorestore --db=ludoapptmp ./dump/ludoapp
+	Restore MongoDB Atlas
+	$ mongorestore --uri mongodb+srv://<username>:<password>@cluster0.ntqhr.mongodb.net/<database name> <dumped files directory path>
 
 
 
