@@ -202,3 +202,27 @@ END: Import/Export Distor
 =========================
 ##################### END: WSL #####################
 
+
+
+================================
+START: Symbolic Links (symlinks)
+================================
+Use /D when you want to create a soft link pointing to a directory.
+	$ mklink /D Link Target
+
+Use /H when you want to create a hard link pointing to a file:
+	$ mklink /H Link Target
+
+Use /J to create a hard link pointing to a directory, also known as a directory junction:
+	$ mklink /J Link Target
+	Example:
+	$ mklink /J C:\Users\Usman\.userDefinedBash D:\localhost\htdocs\projects\Doc\bash
+	Output of above example:
+		Junction created for C:\Users\Usman\.userDefinedBash <<===>> D:\localhost\htdocs\projects\Doc\bash
+
+
+Reference:
+	https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/
+==============================
+END: Symbolic Links (symlinks)
+==============================
