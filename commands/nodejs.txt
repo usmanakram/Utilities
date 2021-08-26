@@ -1,3 +1,35 @@
+=====================
+START: Install NodeJS
+=====================
+To install nvm
+  $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+To verify that nvm has been installed, do:
+  $ command -v nvm
+
+If nothing happened, restart terminal
+
+Now, you can ask NVM which versions of Node are available:
+  $ nvm list-remote
+
+To install the latest stable LTS release of Node.js (recommended):
+  $ nvm install node --lts
+
+For instance, to get version v13.6.0, you can type:
+  $ nvm install v13.6.0
+
+You can see the different versions you have installed by typing:
+  $ nvm list
+
+
+Reference:
+  https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+  https://docs.microsoft.com/en-us/windows/nodejs/setup-on-wsl2
+===================
+END: Install NodeJS
+===================
+
+
 To see the installed version of npm
 	$ npm -v
 	OR
