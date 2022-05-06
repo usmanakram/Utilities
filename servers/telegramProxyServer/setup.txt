@@ -1,0 +1,50 @@
+$ sudo apt-get update
+
+$ sudo apt-get upgrade -y
+
+$ sudo apt-get install build-essential libwrap0-dev libpam0g-dev libkrb5-dev libsasl2-dev
+
+$ sudo apt-get install dante-server
+
+
+Copy config file, just in case we need to change that
+  $ sudo cp /etc/danted.conf /etc/danted.conf.default
+
+
+$ sudo nano /etc/danted.conf
+
+$ sudo vi /etc/danted.conf
+
+Clear file content using vi editor
+----------------------------------
+  Immediately after opening a file, type "gg" to move the cursor to the first line of the file, assuming it is not already there. Then type "dG" to delete all the lines or text in it.
+
+
+Paste content of config file (danted.conf)
+
+In the above code there is a line "internal: eth0 port = 7007", you can specify the port number for almost any one you like and remember which (within the range from 1 to 65535). The main thing – remember the port.
+
+
+Create a user for SOCKS5 access. You only need one command:
+----------------------------------------------------------
+$ sudo useradd --shell /usr/sbin/nologin -m telegram && sudo passwd telegram
+
+OR
+
+$ sudo useradd telegram -M -s /sbin/nologin
+$ sudo passwd telegram
+
+
+Enter new UNIX password times then enter the same password again. Remember the password .
+
+
+Start the server with the command
+$ sudo service danted start
+
+
+$ sudo service danted status
+$ sudo systemctl restart danted
+
+Reference Link:
+  https://hybridtechcar.com/2018/05/16/how-to-create-a-proxy-server-for-telegram-is-very-cheap/
+  https://medium.com/@karopka/how-to-use-telegram-with-your-own-free-proxy-server-100a6157d535
