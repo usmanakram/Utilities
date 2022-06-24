@@ -589,7 +589,7 @@ To test the renewal process, you can do a dry run with certbot:
   $ sudo certbot renew --dry-run
 
 
-Refference:
+Reference:
   https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
 
@@ -597,12 +597,49 @@ Certbot Auto Renew Cron Job
 ---------------------------
 When you install certificates using certbot it automatically creates cron job to renew certificates. You can check this cron job depending on your operating system. For example in Debian certbot auto renew cronjob can be found at /etc/cron.d/certbot. You can refer certbot documentation to check the location of cron job for your operating system. This cronjob contains following code.
 
-Refference:
+Reference:
 	https://techmonger.github.io/49/certbot-auto-renew/
 
 =========================================
 END: Install Letsencrypt SSL (New method)
 =========================================
+
+===========================
+START: snap package manager
+===========================
+
+To search for a package
+	$ snap find package_name
+
+To install a package
+	$ sudo snap install package_name
+
+To see all installed packages
+	$ snap list
+
+To get information about a single package
+	$ snap info package_name
+
+To change the channel a package tracks for updates
+	$ sudo snap refresh package_name --channel=channel_name
+
+To see whether updates are ready for any installed packages
+	$ sudo snap refresh --list
+
+To manually update a package
+	$ sudo snap refresh package_name
+
+To uninstall a package
+	$ sudo snap remove package_name
+
+
+Reference:
+	https://www.howtogeek.com/660193/how-to-work-with-snap-packages-on-linux/#:~:text=To%20see%20whether%20updates%20are,package%3A%20sudo%20snap%20refresh%20package_name
+
+=========================
+END: snap package manager
+=========================
+
 
 
 
