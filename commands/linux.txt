@@ -624,7 +624,7 @@ To change the channel a package tracks for updates
 	$ sudo snap refresh package_name --channel=channel_name
 
 To see whether updates are ready for any installed packages
-	$ sudo snap refresh --list
+	$ snap refresh --list
 
 To manually update a package
 	$ sudo snap refresh package_name
