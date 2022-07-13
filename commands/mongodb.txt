@@ -285,16 +285,17 @@ db.purchases.aggregate([
 ])
 
 
-db.orders.aggregate([
-	{
-		$lookup: {
-			from: "inventory",
-			localField: "item",
-			foreignField: "sku",
-			as: "inventory_docs"
-		}
-	}
-])
+Join users & boards collections
+-------------------------------
+{
+   $lookup:
+     {
+       from: <collection to join>,
+       localField: <field from the input documents>,
+       foreignField: <field from the documents of the "from" collection>,
+       as: <output array field>
+     }
+}
 
 db.users.aggregate([
 	{
@@ -353,6 +354,20 @@ db.users.aggregate([
 	{ $match: { board: { $ne: null }, } },
 	{ $count: 'userCount' }
 ])
+
+
+Find on array length
+--------------------
+db.users.find({ "$expr": { $gt: [{ $size: "$friends.FB" }, 2] } })
+
+
+Filter on string length
+-----------------------
+db.users.find({
+  "deviceId": { "$exists": true },
+  "$expr": { "$lt": [ { "$strLenCP": "$deviceId" }, 5 ] }
+})
+
 ==============
 END: Queries
 ==============
