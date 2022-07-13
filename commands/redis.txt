@@ -285,6 +285,23 @@ END: Redis Hashes
 =========================
 START: Redis Transactions
 =========================
+To start redis transaction
+  $ multi
+  All commands will be queued until run `exec` command
+
+To execute command
+  $ exec
+
+To remove all queued commands
+  $ discard
+
+
+
+
+
+
+
+
 =======================
 END: Redis Transactions
 =======================
@@ -292,6 +309,13 @@ END: Redis Transactions
 ===================
 START: Redis PubSub
 ===================
+To subscribe a pub/sub channel
+  $ subscribe [channel name] [channel name] ...
+
+To publish message on a channel
+  $ publish [channel name] [message]
+
+
 =================
 END: Redis PubSub
 =================
