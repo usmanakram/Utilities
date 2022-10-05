@@ -165,6 +165,7 @@ To drop database
 
 To import from a json file
 	$ mongoimport --db <database name> --collection <collection name> --file <json file path> --jsonArray
+	$ mongoimport --uri=mongodb+srv://<username>:<password>@ludomumbai.bay21.mongodb.net/<database name> --collection <collection name> --file <filename>.json --jsonArray
 
 To import from complete folder
 	$ cd <json files directory path>
@@ -189,6 +190,7 @@ Stop Service
 
 To export
 	$ mongoexport --db=ludoapp --collection=dices --out=dices.json
+	$ mongoexport --uri=mongodb+srv://<username>:<password>@ludomumbai.bay21.mongodb.net/<database name> --collection=<collection name> --out=<filename>.json
 
 =============================
 START: MongoDB Database Tools
@@ -211,6 +213,7 @@ To create dump
 
 	Example:
 	$ mongodump --db=ludoapp
+	$ mongodump --uri=mongodb+srv://<username>:<password>@cluster0.bay21.mongodb.net/<database name> --forceTableScan
 
 To restore
 	$ mongorestore --port=<27017 is default port> --db=<database name> <dumped files directory path>

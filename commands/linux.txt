@@ -181,7 +181,29 @@ Remove directory
 	Remove both, parent & child
 	$ rmdir -p <parent>/<child>
 
+START:
+Split a large file into 500MB files with the given prefix
+	$ split -d -b 200M httpd.log log
+	Example:
+	$ split -d -b 500M /home/ubuntu/.pm2/logs/streamv1-errorBackup2021-03-29.log /home/ubuntu/.pm2/logs/streamv1-errorBackup2021-03-29.log
 
+scp -i ~/.ssh/aws/vpc-2e638845-first-key.pem ubuntu@ec2-3-138-195-216.us-east-2.compute.amazonaws.com:/home/ubuntu/.pm2/logs/streamv1-errorBackup2021-04-01Tmp.log01 /d/localhost/htdocs/projects/LudoApp/Docs/logs/ludolush.com/streamv1-errorBackup2021-04-01Tmp.log01
+
+ToBeStudied (Google search):
+	Search Query: linux command to split a large file
+
+END:
+
+================================
+START: Symbolic Links (symlinks)
+================================
+
+Google Search:
+	"how to create symlink in linux"
+
+==============================
+END: Symbolic Links (symlinks)
+==============================
 
 ======
 System
@@ -364,6 +386,80 @@ Reference Link:
 ===========================
 END: Linux File Permissions
 ===========================
+
+========================================
+START: ulimit and file descriptors limit
+========================================
+
+To viewing ulimit for Linux user account
+	For soft limit
+	$ ulimit -Sa
+	For hard limit
+	$ ulimit -Ha
+
+To find ulimit for a process
+	$ cat /proc/<PID>/limits
+
+First find PID (process ID) for desired process. For example nginx
+	$ ps aux | grep nginx
+
+
+To find all soft ulimit for user named www-data
+	$ sudo -u www-data bash -c "ulimit -Sa"
+	$ sudo -u www-data sh -c "ulimit -Sa"
+
+Increase per-user Limit
+	You can define per-user open file limit on a Debian based Linux system. To set per-user limit, edit /etc/security/limits.conf file in a text editor.
+
+	<domain>	<type>	<item>	<value>
+	--------	------	------	-------
+	*					soft    nproc   65535
+	*					hard    nproc   65535
+	*					soft    nofile  65535
+	*					hard    nofile  65535
+	jack 	 		soft    nproc   200000
+	jack 	 		hard    nproc   200000
+	jack 	 		soft    nofile  200000
+	jack 	 		hard    nofile  200000
+
+	Here we specifying separate limits which are 200000 for the user “jack” and 65535 will be applied for the rest of the users.
+
+======================================
+END: ulimit and file descriptors limit
+======================================
+
+====================
+START: Google Search
+====================
+Search:
+	check ulimit ubuntu
+
+https://www.linuxtechi.com/set-ulimit-file-descriptors-limit-linux-servers/
+https://www.cyberciti.biz/faq/how-to-find-ulimit-for-user-on-linux/
+
+Search:
+	how to increase max open files on ubuntu
+
+https://kupczynski.info/posts/ubuntu-18-10-ulimits/
+https://tecadmin.net/increase-open-files-limit-ubuntu/
+https://djangoadventures.com/how-to-increase-the-open-files-limit-on-ubuntu/
+
+Search:
+	step by step guide to increase max open file on ubuntu
+
+https://askubuntu.com/questions/1049058/how-to-increase-max-open-files-limit-on-ubuntu-18-04
+https://www.tecmint.com/increase-set-open-file-limits-in-linux/
+https://easyengine.io/tutorials/linux/increase-open-files-limit/
+https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/
+
+Search:
+	how to change nproc value in ubuntu
+
+https://techtrix.co/how-do-i-change-the-nproc-value-in-linux/
+
+==================
+END: Google Search
+==================
 
 
 
@@ -643,9 +739,9 @@ END: snap package manager
 
 
 
-==========================
-Swap File to extend memory
-==========================
+=================================
+START: Swap File to extend memory
+=================================
 First, we can create an empty 1GB file by typing:
 	$ sudo fallocate -l 1G /swapfile
 
@@ -669,7 +765,9 @@ Other Links:
 	https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 	https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04
 
-
+===============================
+END: Swap File to extend memory
+===============================
 
 ========================
 Examples of curl request
@@ -775,8 +873,3 @@ To explicitly grant the SELECT permission:
 
 MySQL database permissions:
 	https://dev.mysql.com/doc/refman/5.5/en/grant.html
-
-
-
-
-
