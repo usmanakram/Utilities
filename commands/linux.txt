@@ -335,6 +335,17 @@ Change group ownership of file or directory
 
 
 
+Run command as another user:
+----------------------------
+	$ runuser -l [username] -c '[command]'
+
+For example, as a root user you may want to check shell resource limits for oracle user, enter:
+	$ runuser -l oracle -c 'ulimit -SHa'
+
+Check nginx or lighttpd web server limitations:
+	$ runuser -l nginx -c 'ulimit -SHa'
+	$ runuser -l lighttpd -c 'ulimit -SHa'
+
 
 =============================
 START: Linux File Permissions
