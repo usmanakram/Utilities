@@ -100,10 +100,10 @@ To remove data form bottom of the list
 To change a value inside list
   $ lset [key] [index] [value]
 
-To inset data before some value inside in list
+To insert data before some value inside in list
   $ linsert [key] before [find value inside list] [value that need to be inserted]
 
-To inset data after some value inside in list
+To insert data after some value inside in list
   $ linsert [key] after [find value inside list] [value that need to be inserted]
 
 To get value at specific index
@@ -151,7 +151,7 @@ To check if a value exist
 To find difference between two Sets
   $ sdiff [set one] [set two]
 
-To sotre difference in another set
+To store difference in another set
   $ sdiffstore [destination set] [set to compare] [set to compare]
 
 To find common elements inside Sets
