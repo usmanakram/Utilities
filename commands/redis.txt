@@ -137,6 +137,9 @@ To create set
   $ sadd [key] [value]
   $ sadd [key] [value] [value] ...
 
+To remove member from set
+  $ srem [key] [value]
+
 To get all members of set
   $ smembers [key]
 
