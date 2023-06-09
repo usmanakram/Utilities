@@ -163,6 +163,12 @@ To drop database
 	1) use database_name
 	2) db.dropDatabase()
 
+List indexes
+	db.collection.getIndexes()
+
+Clone a collection (does not copy indexes)
+	db.myoriginal.aggregate([{ $out: "mycopy" }])
+
 To import from a json file
 	$ mongoimport --db <database name> --collection <collection name> --file <json file path> --jsonArray
 	$ mongoimport --uri=mongodb+srv://<username>:<password>@ludomumbai.bay21.mongodb.net/<database name> --collection <collection name> --file <filename>.json --jsonArray

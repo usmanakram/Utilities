@@ -194,6 +194,11 @@ ToBeStudied (Google search):
 
 END:
 
+Zip all files in a directory
+	$ zip -r <zip file name>.zip <directory name>
+	Example:
+	$ zip -r myfiles.zip mydir
+
 ================================
 START: Symbolic Links (symlinks)
 ================================
