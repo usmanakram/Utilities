@@ -169,6 +169,9 @@ List indexes
 Clone a collection (does not copy indexes)
 	db.myoriginal.aggregate([{ $out: "mycopy" }])
 
+Rename Collection
+	db.orders.renameCollection( "orders2014" )
+
 To import from a json file
 	$ mongoimport --db <database name> --collection <collection name> --file <json file path> --jsonArray
 	$ mongoimport --uri=mongodb+srv://<username>:<password>@ludomumbai.bay21.mongodb.net/<database name> --collection <collection name> --file <filename>.json --jsonArray

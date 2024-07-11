@@ -2,6 +2,10 @@ To set username & email address:
 	$ git config --global user.name "John Doe"
 	$ git config --global user.email johndoe@example.com
 
+For repository level configuration
+	$ git config user.name "John Doe"
+	$ git config user.email johndoe@example.com
+
 To check your configuration settings at perticular point:
 	$ git config --list
 

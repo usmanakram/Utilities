@@ -48,3 +48,21 @@ $ sudo systemctl restart danted
 Reference Link:
   https://hybridtechcar.com/2018/05/16/how-to-create-a-proxy-server-for-telegram-is-very-cheap/
   https://medium.com/@karopka/how-to-use-telegram-with-your-own-free-proxy-server-100a6157d535
+
+
+
+##############################################################################################
+
+Dante Socks5 proxy server doesn't start [closed]
+------------------------------------------------
+
+Find the interface of your device from Terminal with "netstat -rn" and look at the "Iface" column.
+
+Install netstat with "sudo apt install net-tools" if you don't have it.
+
+Change the settings of "external: eth0" to "external: xxxx" where of course "xxxx" being your "Iface" value, in the file "/etc/danted.conf".
+
+
+Reference Link:
+  https://stackoverflow.com/questions/55063462/dante-socks5-proxy-server-doesnt-start
+
