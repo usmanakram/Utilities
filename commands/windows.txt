@@ -200,6 +200,24 @@ Import
 =========================
 END: Import/Export Distor
 =========================
+
+===========================
+START: Some useful commands
+===========================
+
+To find WSL2 machine's IP address from windows powershell or cmd use the command:
+	$ wsl hostname -I
+
+For checking your WSL IP address from the WSL machine:
+	$ ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+	OR
+	$ ip addr | grep inet
+	OR
+	$ ip add | grep "eth0"
+
+=========================
+END: Some useful commands
+=========================
 ##################### END: WSL #####################
 
 
