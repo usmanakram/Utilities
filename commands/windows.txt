@@ -80,7 +80,7 @@ To save the password of all networks/profiles in its respective files
 
 
 
-#################### START: WSL ####################
+################################### START: WSL ###################################
 Windows Subsystem for Linux Installation Guide for Windows 10
 URL:
 	https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -201,9 +201,9 @@ Import
 END: Import/Export Distor
 =========================
 
-===========================
-START: Some useful commands
-===========================
+===============================
+START: Some useful WSL commands
+===============================
 
 To find WSL2 machine's IP address from windows powershell or cmd use the command:
 	$ wsl hostname -I
@@ -215,10 +215,10 @@ For checking your WSL IP address from the WSL machine:
 	OR
 	$ ip add | grep "eth0"
 
-=========================
-END: Some useful commands
-=========================
-##################### END: WSL #####################
+=============================
+END: Some useful WSL commands
+=============================
+#################################### END: WSL ####################################
 
 
 
@@ -244,3 +244,19 @@ Reference:
 ==============================
 END: Symbolic Links (symlinks)
 ==============================
+
+======================
+START: Useful Commands
+======================
+
+To get the list of available upgrade of all installed packages:
+Run Command Prompt as administrator and run following command
+	$ winget upgrade
+
+To upgrade all installed packages simultaneously:
+	$ winget upgrade --all
+
+
+====================
+END: Useful Commands
+====================
