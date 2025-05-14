@@ -12,3 +12,28 @@ List installed packages:
 	OR
 	$ pip list -v
 
+
+
+############################################################################
+
+===========================================================
+START:Download Youtube video using `yt-dlp` Python package.
+===========================================================
+
+Install package
+	$ pip install yt-dlp
+
+Download subtitles
+	$ yt-dlp --write-subs --sub-lang ur --skip-download "youtube video link"
+
+Download Youtube video
+	$ yt-dlp "https://www.youtube.com/watch?v=uSuNPCzA4SQ"
+
+Download Audio only
+	$ yt-dlp -f "bestaudio" --extract-audio --audio-format mp3 "https://www.youtube.com/watch?v=uSuNPCzA4SQ"
+
+
+
+=========================================================
+END:Download Youtube video using `yt-dlp` Python package.
+=========================================================
