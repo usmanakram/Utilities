@@ -12,6 +12,59 @@ List installed packages:
 	OR
 	$ pip list -v
 
+To get a list of installed packages and versions
+  $ pip freeze > [output filename]
+  Example:
+  $ pip freeze > requirements.txt
+
+To install packages mentioned in requirement.txt
+  $ pip install -r requirements.txt
+
+To uninstall packages mentioned in requirement.txt
+  $ pip uninstall requirements.txt
+
+===================
+START: Environments
+===================
+
+To create an environment
+  $ python -m venv [environment name]
+  Example
+  $ python -m venv .venv
+
+To activate environment
+  $ .venv/Script/activate
+
+
+Error occurred upon running above command:
+------------------------------------------
+.venv\Scripts\Activate.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+
+Solution:
+---------
+Option 1: Use cmd instead of PowerShell
+	Run in Command Prompt:
+	$ .\.venv\Scripts\activate.bat
+
+	That avoids PowerShell execution policies completely.
+
+
+Option 2: Bypass for One Session Only
+	If you don’t want to change global settings, just bypass temporarily:
+
+	$ powershell -ExecutionPolicy Bypass -NoLogo -NoProfile
+
+	Then inside:
+	$ .\.venv\Scripts\activate
+
+
+
+To de-activate environment
+  $ deactivate
+
+=================
+END: Environments
+=================
 
 
 ############################################################################

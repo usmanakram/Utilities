@@ -256,6 +256,11 @@ Run Command Prompt as administrator and run following command
 To upgrade all installed packages simultaneously:
 	$ winget upgrade --all
 
+To get battery report:
+Run Command Prompt as administrator and run following command
+	$ powercfg/batteryreport
+
+	The command will create an HTML file containing the battery report. The file path will be displayed in the command prompt. You can also find it under C:\\Windows\\system32\\battery-report.html or C:\\Users\\your-account\\battery-report.html.
 
 ====================
 END: Useful Commands
