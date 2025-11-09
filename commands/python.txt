@@ -23,6 +23,11 @@ To install packages mentioned in requirement.txt
 To uninstall packages mentioned in requirement.txt
   $ pip uninstall requirements.txt
 
+
+This command provides detailed information about the package, including its dependencies.
+	$ pip show package-name
+
+
 ===================
 START: Environments
 ===================
@@ -85,6 +90,8 @@ Download Youtube video
 Download Audio only
 	$ yt-dlp -f "bestaudio" --extract-audio --audio-format mp3 "https://www.youtube.com/watch?v=uSuNPCzA4SQ"
 
+List available formats
+	$ yt-dlp --list-formats "https://www.youtube.com/watch?v=LY6IoCMmYcc"
 
 
 =========================================================

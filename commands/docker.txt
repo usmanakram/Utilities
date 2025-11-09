@@ -145,7 +145,7 @@ To run command inside running container
 	To run command inside a specific directory
 	$ docker exec -w /path/to/directory <container name or id> <command>
 
-	Example: (login mariadb container)
+	Example: (login mariadb container) in Ubuntu terminal
 	$ docker exec -it mariadb-server bash
 	$ mysql -p
 	$ 1234

@@ -245,6 +245,33 @@ Reference:
 END: Symbolic Links (symlinks)
 ==============================
 
+=======================================
+START: Windows Package Manager (winget)
+=======================================
+
+Get the list of all installed packages
+	$ winget list
+
+Search for the software among installed apps
+	$ winget list --name "software_name"
+	Example:
+	$ winget list --name "Google Chrome"
+
+Export the list of installed packages
+	$ winget export -o [output file path]
+	Example:
+	$ winget export -o d:\list.json
+
+Import feature allow to install packages from json file
+	$ winget import -i [import file path] --accept-source-agreements --accept-package-agreements
+	Example:
+	$ winget import -i d:\list.json --accept-source-agreements --accept-package-agreements
+
+=====================================
+END: Windows Package Manager (winget)
+=====================================
+
+
 ======================
 START: Useful Commands
 ======================
