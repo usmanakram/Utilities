@@ -252,10 +252,29 @@ START: Windows Package Manager (winget)
 Get the list of all installed packages
 	$ winget list
 
-Search for the software among installed apps
+Search (by name: --name) for the software among installed apps
 	$ winget list --name "software_name"
 	Example:
 	$ winget list --name "Google Chrome"
+
+Filtering the List of Installed Packages
+	$ winget list [query]
+	Example:
+	$ winget list git
+
+To filter by the exact ID of the package
+	$ winget list --id [package id] --exact
+	Example:
+	$ winget list --id Microsoft.VisualStudioCode --exact
+
+Lists only packages which have an upgrade available
+	$ winget list --upgrade-available
+
+Install a specific package (-e: using exact match), (using the specified source: --source)
+	$ winget install --id [package id] -e --source winget
+	Example:
+	$ winget install --id Microsoft.VisualStudioCode -e --source winget
+
 
 Export the list of installed packages
 	$ winget export -o [output file path]
@@ -267,6 +286,14 @@ Import feature allow to install packages from json file
 	Example:
 	$ winget import -i d:\list.json --accept-source-agreements --accept-package-agreements
 
+
+To get the list of available upgrade of all installed packages:
+Run Command Prompt as administrator and run following command
+	$ winget upgrade
+
+To upgrade all installed packages simultaneously:
+	$ winget upgrade --all
+
 =====================================
 END: Windows Package Manager (winget)
 =====================================
@@ -276,18 +303,31 @@ END: Windows Package Manager (winget)
 START: Useful Commands
 ======================
 
-To get the list of available upgrade of all installed packages:
-Run Command Prompt as administrator and run following command
-	$ winget upgrade
-
-To upgrade all installed packages simultaneously:
-	$ winget upgrade --all
-
 To get battery report:
 Run Command Prompt as administrator and run following command
 	$ powercfg/batteryreport
 
 	The command will create an HTML file containing the battery report. The file path will be displayed in the command prompt. You can also find it under C:\\Windows\\system32\\battery-report.html or C:\\Users\\your-account\\battery-report.html.
+
+
+To check whether a system port is in use (engaged) or free
+	Using PowerShell
+	$ Get-NetTCPConnection -LocalPort <PORT_NUMBER>
+	Example:
+	$ Get-NetTCPConnection -LocalPort 5000
+
+	Using Command Prompt
+	$ netstat -ano | findstr :<PORT_NUMBER>
+	Example:
+	$ netstat -ano | findstr :5000
+
+
+
+
+Check which process is using port 5000: (PowerShell)
+	$ netstat -ano | findstr :5000
+	Output:
+	TCP    0.0.0.0:5000   ...   PID: 1234
 
 ====================
 END: Useful Commands
